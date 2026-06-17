@@ -511,7 +511,55 @@ html.dark .group ul img {
 }
 
 </style>
-  </head>
+  
+<style>
+@media (prefers-color-scheme: dark) {
+  input[type="password"], 
+  input[type="text"].password-visible {
+    color: #000 !important;
+    background-color: #fff !important;
+    -webkit-text-fill-color: #000 !important;
+  }
+}
+</style>
+
+<style>
+/* Forzar color negro en input de contraseña en modo oscuro */
+@media (prefers-color-scheme: dark) {
+  input[type="password"],
+  input[type="text"] {
+    color: #000 !important;
+    background-color: #fff !important;
+    -webkit-text-fill-color: #000 !important;
+  }
+  
+  /* Para cuando Chrome autocompleta */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: #000 !important;
+    -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+    box-shadow: 0 0 0 1000px #fff inset !important;
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+  
+  /* Para el placeholder */
+  input::placeholder {
+    color: #999 !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Sin media query, por si el sitio ya está en dark por defecto */
+input[type="password"],
+input[type="text"] {
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important;
+}
+</style>
+</head>
  <body>
 <a href="#main-content" class="skip-to-content">Saltar al contenido principal</a>
 
