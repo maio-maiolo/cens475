@@ -193,7 +193,8 @@ input[type="password"]::placeholder {
 }
 
 html.dark #theme-toggle-thumb {
-  transform: translateX(20px);
+  transform: translateX(30px);
+
 }
 
 .skip-to-content {
@@ -418,8 +419,8 @@ html.dark header img.escudo-logo {
   padding: 0.75rem 1rem;
   border: 2px solid rgba(120, 178, 180, 0.3);
   border-radius: 0.5rem;
-  background: var(--white);
-  color: var(--text-dark);
+  background-color: #ffffff !important; /* Siempre blanco */
+  color: #1E293B !important; /* Siempre texto oscuro */
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -431,8 +432,23 @@ html.dark header img.escudo-logo {
 }
 
 .form-input::placeholder {
-  color: var(--text-light);
+  color: #64748B;
+  opacity: 1;
 }
+
+/* Fix para autofill de Chrome/Safari en dark mode */
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #1E293B !important;
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+  box-shadow: 0 0 0 1000px #ffffff inset !important;
+  background-color: #ffffff !important;
+  color: #1E293B !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .badge {
   display: inline-block;
   padding: 0.4rem 1.25rem;
@@ -590,15 +606,15 @@ input[type="text"] {
   </a>
 
   <!-- Switch Modo Oscuro -->
-  <button id="theme-toggle" aria-label="Cambiar modo oscuro" 
-          class="relative w-11 h-6 rounded-full p-0.5 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-teal ml-3"
-          style="background: var(--accent-teal);">
-    <div id="theme-toggle-thumb" 
-         class="absolute top-0.5 left-0.5 w-5 h-5 bg-[var(--card-bg)] rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
-      <i id="theme-icon-sun" class="fas fa-sun text-xs" style="color: #FDB813;"></i>
-      <i id="theme-icon-moon" class="fas fa-moon text-xs hidden" style="color: #32535F;"></i>
-    </div>
-  </button>
+ <button id="theme-toggle" aria-label="Cambiar modo oscuro" 
+        class="relative w-16 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-teal ml-3"
+        style="background: var(--accent-teal);">
+  <div id="theme-toggle-thumb" 
+       class="absolute top-1 left-1 w-6 h-6 bg-[var(--card-bg)] rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
+    <i id="theme-icon-sun" class="fas fa-sun text-sm" style="color: #FDB813;"></i>
+    <i id="theme-icon-moon" class="fas fa-moon text-sm hidden" style="color: #FFFFFF;"></i>
+  </div>
+</button>
 </div>
 
       <!-- Desktop Menu -->
@@ -616,8 +632,13 @@ input[type="text"] {
       </li>
       <li>
         <a href="#sobre-nosotros" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
-          <img src="img/info.png" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Nosotros</span>
+          <img src="img/info.png" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Sobre Nosotros</span>
         </a>
+      </li>
+      <li>
+       <a href="Nuestra Identidad.html" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+    <img src="img/historia.png" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Nuestra Identidad</span>
+     </a>
       </li>
       <li>
         <a href="#equipo-directivo" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
@@ -632,13 +653,18 @@ input[type="text"] {
     </ul>
   </li> <li><a href="#plan-estudios" class="nav-link">Plan de Estudios</a></li>
   <li><a href="#inscripciones" class="nav-link">Inscripciones</a></li>
-  <li><a href="#contacto" class="nav-link">Contacto</a></li> 
-  <li class="ml-4">
-    <a href="#zona-alumnos" class="bg-[#557186] hover:bg-[#4a6375] text-white px-5 py-2 rounded-full font-semibold transition-all shadow-md"> Portal Alumnos </a>
-  </li>
+  <li><a href="#contacto" class="nav-link">Contacto</a></li>
+
+ <li>
+  <a href="#zona-alumnos" 
+   class="flex items-center gap-2 bg-[#557186] hover:bg-[#4a6375] text-white p-3 rounded-xl font-bold justify-center transition-all">
+    <img src="img/alumno.png" alt="" class="w-6 h-6 object-contain invert"> 
+    Portal Alumnos
+  </a>
+</li>
 </ul>
       <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="hamburger md:hidden ml-8" aria-label="Abrir menú" aria-expanded="false">
+      <button id="menu-btn" class="hamburger md:hidden ml-12" aria-label="Abrir menú" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -647,7 +673,8 @@ input[type="text"] {
   </nav>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="fixed top-[95px] right-0 w-full h-screen md:hidden" style="background: var(--white);">
+  <div id="mobile-menu" class="fixed top-[95px] right-0 w-full h-screen md:hidden hidden [&.open]:flex flex-col shadow-2xl transition-all duration-300" style="background: var(--white);">
+
   <ul class="flex flex-col gap-6 p-8 list-none">
      <li>
   <a href="#zona-alumnos" 
@@ -669,8 +696,11 @@ input[type="text"] {
            <img src="img/home.png" alt="" class="w-5 h-5 object-contain opacity-70"> Inicio
         </a></li>
         <li><a href="#sobre-nosotros" class="nav-link text-lg flex items-center gap-3 py-1 px-2 rounded-lg hover:bg-[var(--accent-teal)]/10 transition-colors">
-          <img src="img/info.png" alt="" class="w-5 h-5 object-contain opacity-70"> Nosotros
+          <img src="img/info.png" alt="" class="w-5 h-5 object-contain opacity-70"> Sobre Nosotros
         </a></li>
+        <li><a href="Nuestra Identidad.html" class="nav-link text-lg flex items-center gap-3 py-1 px-2 rounded-lg hover:bg-[var(--accent-teal)]/10 transition-colors">
+        <img src="img/historia.png" alt="" class="w-5 h-5 object-contain opacity-70"> Nuestra Identidad
+       </a></li>
         <li><a href="#equipo-directivo" class="nav-link text-lg flex items-center gap-3 py-1 px-2 rounded-lg hover:bg-[var(--accent-teal)]/10 transition-colors">
           <img src="img/liderazgo2.png" alt="" class="w-5 h-5 object-contain opacity-70"> Equipo Directivo
         </a></li>
@@ -879,7 +909,20 @@ input[type="text"] {
       </div>
     </div>
 
-    <div class="relative max-w-5xl mx-auto">
+    <!-- Contenedor relativo para posicionar las flechas por encima -->
+    <div class="relative max-w-5xl mx-auto group/arrows">
+      
+      <!-- Flecha Izquierda -->
+      <button id="prevBtn" aria-label="Imagen anterior" class="absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all md:opacity-0 md:group-hover/arrows:opacity-100 shadow-md">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <!-- Flecha Derecha -->
+      <button id="nextBtn" aria-label="Siguiente imagen" class="absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all md:opacity-0 md:group-hover/arrows:opacity-100 shadow-md">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- El contenedor del carrusel -->
       <div id="carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6" style="scroll-behavior: smooth;">
         
         <div class="min-w-[300px] md:min-w-[400px] snap-center">
@@ -901,87 +944,93 @@ input[type="text"] {
           <img src="img/imagen6.png" alt="Comunidad educativa" class="w-full h-72 object-cover rounded-2xl shadow-lg hover:opacity-90 transition-opacity">
         </div>
 
+        <!-- Tarjeta final de invitación a Instagram -->
+        <div class="min-w-[300px] md:min-w-[400px] snap-center flex flex-col justify-center items-center bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 rounded-2xl shadow-lg px-6 text-center text-white">
+          <i class="fab fa-instagram text-5xl mb-4"></i>
+          <h3 class="text-2xl font-bold mb-2">¡Seguinos en las redes!</h3>
+          <p class="text-white/95 text-sm mb-6 max-w-[280px]">
+            ¡Seguinos en Instagram y entérate de todas las novedades de nuestra institución al instante! 
+          </p>
+          <a href="https://www.instagram.com/cens475lamatanza/" target="_blank" rel="noopener" class="bg-white text-purple-700 px-6 py-2.5 rounded-full font-bold shadow-md hover:bg-opacity-90 transition-all text-sm flex items-center gap-2">
+            @cens475lamatanza <i class="fas fa-external-link-alt text-xs"></i>
+          </a>
+        </div>
+
       </div>
+    </div>
+
+    <!-- Mensaje en el pie de la galería -->
+    <div class="text-center mt-10 fade-in">
+      <p class="text-lg font-medium text-[var(--text-dark)] flex items-center justify-center gap-2 flex-wrap">
+        📸 ¡Mirá más contenido! 
+        <a href="https://www.instagram.com/cens475lamatanza/" target="_blank" rel="noopener" class="text-teal-600 dark:text-[var(--accent-light)] font-bold hover:underline inline-flex items-center gap-1 transition-all">
+          ¡Seguinos en Instagram y enterate de todas nuestras novedades al instante!
+        </a>
+      </p>
     </div>
   </div>
 </section>
 
-<!-- zona alumnos -->
+<!-- Potal alumnos -->
 <section id="zona-alumnos" class="py-16 bg-[var(--bg-light)]">
   <div class="container mx-auto px-4">
-    
-    <!-- Encabezado de la sección -->
     <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
-  <span class="badge mb-4">Portal Alumnos</span>
-  <h2 class="text-3xl md:text-4xl font-bold mb-4">Espacio para estudiantes del CENS Nº475</h2>
-  
-  <!-- Descripción añadida -->
-  <p class="text-lg text-[var(--text-muted)]">
-    Accedé a tus materiales de estudio y toda la información académica necesaria para acompañar tu trayectoria escolar.
-  </p>
-</div>
-
-    <!-- Contenedor de las dos tarjetas -->
-    <div class="grid md:grid-cols-2 gap-8 items-start">
-      
-      <!-- Lado Izquierdo: Descripción (Tarjeta 1) -->
-      <div class="text-center card fade-in p-8 h-full">
-        <span class="badge mb-4 inline-block">Acceso a Estudiantes</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-main)] mb-6">Gestioná tu cursada</h2>
-
-        <p class="text-lg text-[var(--text-muted)] mb-4">
-          El Portal del Alumno del CENS N°475 es el espacio centralizado donde podés acceder a tus materiales de estudio, fechas de exámenes y novedades importantes de manera rápida y sencilla.
-        </p>
-
-        <p class="text-lg text-[var(--text-muted)] mb-4">
-          Si sos alumno regular, ingresá con la contraseña proporcionada por secretaría para consultar tu información académica personalizada.
-        </p>
-
-        <!-- Bloque de soporte -->
-        <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-slate-300">
-          <p class="text-slate-700 font-semibold mb-1">¿Necesitás ayuda?</p>
+      <span class="badge mb-4">Portal Alumnos</span>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Espacio para estudiantes del CENS Nº475</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-10 gap-8 items-stretch">
+    <div class="card compact-card fade-in p-8 h-full portal-alumnos-card md:col-span-3"> 
+    <form onsubmit="event.preventDefault(); verificarAcceso();" class="text-center h-full flex flex-col justify-between m-0">
+    <div>
+      <div class="mb-4">
+        <img src="img/graduado.png" alt="Portal Alumnos" class="w-16 h-16 mx-auto object-contain">
+      </div>
+      <h2 class="text-3xl font-bold text-[var(--text-dark)] mb-2">Portal Alumnos</h2>
+      <p class="text-lg text-[var(--text-muted)] mb-4">
+        Sección <strong>exclusiva para alumnos.</strong> <br>
+        <strong>Ingresá con la contraseña</strong> otorgada.
+      </p>
+      <div class="relative mb-6">
+        <input type="password" id="password-input" 
+               class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none transition pr-12" 
+               placeholder="Contraseña de alumno">
+        <button type="button" onclick="togglePassword()" class="absolute right-4 top-1/2 -translate-y-1/2">
+          <img id="eye-icon" src="img/esconder.png" alt="Ver contraseña" class="w-6 h-6 opacity-60 hover:opacity-100 transition">
+        </button>
+      </div>
+    <div>
+      <button type="submit" class="w-full bg-[#32535F] text-white py-4 rounded-xl font-bold text-lg hover:bg-[#2a454f] transition shadow-lg mb-4">
+        Ingresar
+      </button>
+      <p class="text-lg text-[var(--text-muted)]">
+        ¿No tenés contraseña? <a href="#contacto" class="text-teal-700 font-bold underline">Contactá a secretaría</a>
+      </p>
+        </div>
+      </form>
+     </div>
+    </div>
+      <div class="text-center card fade-in p-8 h-full flex flex-col justify-between md:col-span-7">
+        <div>
+          <span class="badge mb-4 inline-block">Acceso a Estudiantes</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-main)] mb-6">Gestioná tu cursada</h2>
           <p class="text-lg text-[var(--text-muted)] mb-4">
-            Si tenés problemas, escribinos por 
-            <a href="https://wa.me/541128580976" class="text-green-600 font-medium hover:underline">WhatsApp secretaría</a>. ¡Estamos para ayudarte!
+            El Portal del Alumno del CENS N°475 es el espacio centralizado donde podés acceder a tus materiales de estudio, fechas de exámenes y novedades importantes de manera rápida y sencilla.
+          </p>
+          <p class="text-lg text-[var(--text-muted)] mb-4">
+            Si sos alumno regular, ingresá con la contraseña proporcionada por secretaría para consultar tu información académica personalizada.
           </p>
         </div>
-      </div> <!-- Cierre correcto de Tarjeta 1 -->
-
-      <!-- Lado Derecho: Portal (Tarjeta 2) -->
-      <div class="text-center card compact-card fade-in p-8 h-full portal-alumnos-card"> 
-        <div class="mb-4">
-          <img src="img/graduado.png" alt="Portal Alumnos" class="w-16 h-16 mx-auto object-contain">
+        <div class="bg-slate-50 p-4 rounded-lg border-l-4 border-slate-300 mt-auto text-left">
+          <p class="text-slate-700 font-semibold mb-1">¿Necesitás ayuda?</p>
+          <p class="text-lg text-[var(--text-muted)] mb-0">
+            Si tenés algun problema para ingresar, escribinos por 
+            <a href="https://wa.me/541128580976" class="text-green-600 font-medium hover:underline">WhatsApp secretaría</a>. ¡Estamos para ayudarte! Siempre.
+          </p>
         </div>
-        <h2 class="text-3xl font-bold text-[var(--text-dark)] mb-2">Portal Alumnos</h2>
-        <p class="text-lg text-[var(--text-muted)] mb-4">
-          Sección <strong>exclusiva para alumnos</strong> del CENS N°475.<br>
-          Ingresá con la contraseña otorgada por la institución.
-        </p>
+      </div> </div> </div> </section>
 
-        <div class="relative mb-6">
-    <input type="password" id="password-input" 
-           class="w-full px-4 py-3 rounded-xl border border-slate-200 outline-none transition pr-12" 
-           placeholder="Contraseña de alumno">
-    
-    <button type="button" onclick="togglePassword()" class="absolute right-4 top-1/2 -translate-y-1/2">
-      <img id="eye-icon" src="img/esconder.png" alt="Ver contraseña" class="w-6 h-6 opacity-60 hover:opacity-100 transition">
-    </button>
-  </div>
-
-  <button onclick="verificarAcceso()" class="w-full bg-[#32535F] text-white py-4 rounded-xl font-bold text-lg hover:bg-[#2a454f] transition shadow-lg">
-    Ingresar a Mis Materias
-  </button>
-       <p class="text-lg text-[var(--text-muted)] mb-4">
-          ¿No tenés contraseña? <a href="#contacto" class="text-teal-700 font-bold underline">Contactá a secretaría</a>
-        </p>
-      </div> <!-- Cierre correcto de Tarjeta 2 -->
-      
-    </div> <!-- Cierre del grid -->
-  </div> <!-- Cierre del container -->
-</section>
-     
-  <!-- Plan de Estudios -->
- <section id="plan-estudios" style="background: var(--white); padding: 4rem 0;">
+<!-- Plan de Estudios -->
+     <section id="plan-estudios" style="background: var(--white); padding: 4rem 0;">
   <div class="container">
     <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
       <span class="badge mb-4">Plan de Estudios</span>
@@ -999,24 +1048,24 @@ input[type="text"] {
         </h3>
         <div class="space-y-6 text-sm">
           <div>
-            <h4 class="font-bold uppercase text-gray-700 dark:text-white border-b pb-2 mb-2">Formación Básica</h4>
-            <ul class="space-y-1 text-[var(--text-muted)]">
-              <li>Ciencias Sociales 1 / 2 </li>
-              <li>Prácticas del Lenguaje 1 / 2 </li>
-              <li>Matemática 1 / 2 </li>
-              <li>Biología y Ambiente / Biología y Salud </li>
-              <li>Lengua Adicional 1 / 2 </li>
-              <li>Tecnología y Prácticas Digitales 1 / 2 </li>
-              <li>Educación Física 1 / 2 </li>
-              <li>Educación Artística 1 / 2 </li>
+            <h4 class="font-bold uppercase text-gray-700 dark:text-white border-b pb-2 mb-3">Formación Básica</h4>
+            <ul class="space-y-2 text-[var(--text-muted)]">
+              <li class="flex items-center gap-2"><i class="fas fa-users-cog text-[var(--accent-teal)] w-5"></i> <span>Ciencias Sociales </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-pen-nib text-[var(--accent-teal)] w-5"></i> <span>Prácticas del Lenguaje </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-calculator text-[var(--accent-teal)] w-5"></i> <span>Matemática </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-dna text-[var(--accent-teal)] w-5"></i> <span>Biología y Ambiente Salud </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-language text-[var(--accent-teal)] w-5"></i> <span>Lengua Adicional </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-laptop-code text-[var(--accent-teal)] w-5"></i> <span>Tecnología y Prácticas Digitales </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-running text-[var(--accent-teal)] w-5"></i> <span>Educación Física </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-palette text-[var(--accent-teal)] w-5"></i> <span>Educación Artística </span></li>
             </ul>
           </div>
           <div>
-            <h4 class="font-bold uppercase text-gray-700 dark:text-[var(--text-main)] border-b pb-2 mb-2">Orientaciones</h4>
+            <h4 class="font-bold uppercase text-gray-700 dark:text-[var(--text-main)] border-b pb-2 mb-3">Orientaciones</h4>
             <div class="space-y-3 text-[var(--text-muted)]">
-              <p><strong>Naturales:</strong> Desarrollo Sustentable 1 / 2; Salud y Cultura 1 / 2 </p>
-              <p><strong>Sociales:</strong> Sociología 1 / 2; Psicología del Desarrollo / Psicología Social e Institucional </p>
-              <p><strong>Economía:</strong> Sistemas Contables / Gestión Contable de Emprendimientos; Gestión del Diseño de Emprendimientos / Administración Pública </p>
+              <p><strong class="text-emerald-600 dark:text-emerald-400">Naturales:</strong> Desarrollo Sustentable; Salud y Cultura </p>
+              <p><strong class="text-blue-600 dark:text-blue-400">Sociales:</strong> Sociología; Psicología del Desarrollo / Psicología Social e Institucional</p>
+              <p><strong class="text-amber-600 dark:text-amber-400">Economía:</strong> Sistemas Contables / Gestión Contable; Gestión del Diseño de Emprendimientos / Admin. Pública</p>
             </div>
           </div>
         </div>
@@ -1028,24 +1077,25 @@ input[type="text"] {
         </h3>
         <div class="space-y-6 text-sm">
           <div>
-            <h4 class="font-bold uppercase text-gray-700 dark:text-white border-b pb-2 mb-2">Formación Básica</h4>
-            <ul class="space-y-1 text-[var(--text-muted)]">
-              <li>Ciencias Sociales 3 / 4 </li>
-              <li>Prácticas del Lenguaje 3 / 4 </li>
-              <li>Física y Fenómenos Naturales / Física y Procesos Productivos </li>
-              <li>Matemática 3 / 4 </li>
-              <li>Lengua Adicional 3 / 4 </li>
-              <li>Ciudadanía, Sociedad y Cultura / Relaciones Laborales </li>
-              <li>Tecnología y Prácticas Digitales 3 / 4 </li>
-              <li>Educación Física 3 / 4[cite: 39]; Ed. Artística 3 / 4 </li>
+            <h4 class="font-bold uppercase text-gray-700 dark:text-white border-b pb-2 mb-3">Formación Básica</h4>
+            <ul class="space-y-2 text-[var(--text-muted)]">
+              <li class="flex items-center gap-2"><i class="fas fa-globe-americas text-[var(--accent-teal)] w-5"></i> <span>Ciencias Sociales </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-comments text-[var(--accent-teal)] w-5"></i> <span>Prácticas del Lenguaje </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-atom text-[var(--accent-teal)] w-5"></i> <span>Física y Fenómenos / Proc. Productivos</span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-square-root-alt text-[var(--accent-teal)] w-5"></i> <span>Matemática </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-atlas text-[var(--accent-teal)] w-5"></i> <span>Lengua Adicional </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-handshake text-[var(--accent-teal)] w-5"></i> <span>Ciudadanía y Cultura / Rel. Laborales</span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-network-wired text-[var(--accent-teal)] w-5"></i> <span>Tecnología y Prácticas Digitales</span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-dumbbell text-[var(--accent-teal)] w-5"></i> <span>Educación Física </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-music text-[var(--accent-teal)] w-5"></i> <span>Ed. Artística </span></li>
             </ul>
           </div>
           <div>
-            <h4 class="font-bold uppercase text-gray-700 dark:text-[var(--text-main)] border-b pb-2 mb-2">Orientaciones</h4>
+            <h4 class="font-bold uppercase text-gray-700 dark:text-[var(--text-main)] border-b pb-2 mb-3">Orientaciones</h4>
             <div class="space-y-3 text-[var(--text-muted)]">
-              <p><strong>Naturales:</strong> Derecho Ambiental / Políticas Ambientales; Salud y Género / Salud y Trabajo; Metodología de la Investigación 1 / 2 </p>
-              <p><strong>Sociales:</strong> Derechos Humanos 1 / 2; Metodología de la Investigación 1 / 2 </p>
-              <p><strong>Economía:</strong> Derecho Económico / Derecho del Trabajo; Admin. de Capacidades / Gestión Económico Comercial </p>
+              <p><strong class="text-emerald-600 dark:text-emerald-400">Naturales:</strong> Derecho Ambiental / Políticas Ambientales; Salud y Género / Trabajo; Metodología Inv. </p>
+              <p><strong class="text-blue-600 dark:text-blue-400">Sociales:</strong> Derechos Humanos; Metodología de la Investigación</p>
+              <p><strong class="text-amber-600 dark:text-amber-400">Economía:</strong> Derecho Económico / del Trabajo; Admin. de Capacidades / Gestión Com. Comercial</p>
             </div>
           </div>
         </div>
@@ -1057,23 +1107,24 @@ input[type="text"] {
         </h3>
         <div class="space-y-6 text-sm">
           <div>
-           <h4 class="font-bold uppercase text-gray-700 dark:text-white border-b pb-2 mb-2">Formación Básica</h4>
-            <ul class="space-y-1 text-[var(--text-muted)]">
-              <li>Problemática Social Argentina 1 / 2 </li>
-              <li>Prácticas del Lenguaje 5 / 6 </li>
-              <li>Matemática 5 / 6 </li>
-              <li>Química y Tecnologías / Química y Sociedad </li>
-              <li>Lengua Adicional 5 / 6 </li>
-              <li>Tecnología y Prácticas Digitales 5 / 6 </li>
-              <li>Educación Física 5 / 6; Ed. Artística 5 / 6 </li>
+            <h4 class="font-bold uppercase text-gray-700 dark:text-white border-b pb-2 mb-3">Formación Básica</h4>
+            <ul class="space-y-2 text-[var(--text-muted)]">
+              <li class="flex items-center gap-2"><i class="fas fa-landmark text-[var(--accent-teal)] w-5"></i> <span>Prob. Social Argentina </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-feather-alt text-[var(--accent-teal)] w-5"></i> <span>Prácticas del Lenguaje </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-percentage text-[var(--accent-teal)] w-5"></i> <span>Matemática </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-flask text-[var(--accent-teal)] w-5"></i> <span>Química y Tecnologías / Sociedad</span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-globe text-[var(--accent-teal)] w-5"></i> <span>Lengua Adicional </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-cloud-upload-alt text-[var(--accent-teal)] w-5"></i> <span>Tecnología y Prácticas Digitales </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-heartbeat text-[var(--accent-teal)] w-5"></i> <span>Educación Física </span></li>
+              <li class="flex items-center gap-2"><i class="fas fa-theater-masks text-[var(--accent-teal)] w-5"></i> <span>Ed. Artística </span></li>
             </ul>
           </div>
           <div>
-            <h4 class="font-bold uppercase text-gray-700 dark:text-[var(--text-main)] border-b pb-2 mb-2">Orientaciones</h4>
+            <h4 class="font-bold uppercase text-gray-700 dark:text-[var(--text-main)] border-b pb-2 mb-3">Orientaciones</h4>
             <div class="space-y-3 text-[var(--text-muted)]">
-              <p><strong>Naturales:</strong> Nutrición y Vida Saludable / Etapas; Políticas Públicas 1 / 2; Sociología y Proc. Organizacionales en Salud 1 / 2 </p>
-              <p><strong>Sociales:</strong> Filosofía 1 / 2; Comunicación y Cultura 1 / 2 </p>
-              <p><strong>Economía:</strong> Economía / Economía Popular, Social y Solidaria; Legislación e Impuestos / Herramientas Legales</p>
+              <p><strong class="text-emerald-600 dark:text-emerald-400">Naturales:</strong> Nutrición y Vida Saludable / Etapas; Políticas Públicas; Soc. y Proc. en Salud </p>
+              <p><strong class="text-blue-600 dark:text-blue-400">Sociales:</strong> Filosofía; Comunicación y Cultura </p>
+              <p><strong class="text-amber-600 dark:text-amber-400">Economía:</strong> Economía / Econ. Popular, Social y Solidaria; Legislación e Impuestos</p>
             </div>
           </div>
         </div>
@@ -1221,77 +1272,84 @@ input[type="text"] {
   <a href="https://wa.me/541128580976" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
     <img src="img/wsp.png" alt="WhatsApp" class="w-8 h-8">
   </a>
-  <a href="https://www.instagram.com/censno475lamatanza?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="w-14 h-14 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+  <a href="https://www.instagram.com/cens475lamatanza/" target="_blank" class="w-14 h-14 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
     <img src="img/insta.png" alt="Instagram" class="w-8 h-8">
   </a>
 </div>
 
 <!-- Footer -->
-<footer style="background: var(--primary-dark); color: white;">
-  <div class="container py-12">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <div class="fade-in">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-11 h-11 rounded-lg flex items-center justify-center overflow-hidden">
-          <img src="img/escudo2.png" alt="Logo CENS 475" class="w-full h-full object-contain">
-          </div>
-          <span class="text-xl font-bold">CENS N° 475</span>
-        </div>
-        <p class="text-white/80 mb-4">
-          Educación pública, gratuita y de calidad para jóvenes y adultos en Isidro Casanova (San Alberto).
-        </p>
-        <div class="flex gap-4">
-          <a href="https://www.instagram.com/censno475lamatanza?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram del CENS 475" class="w-10 h-10 rounded-lg flex items-center justify-center hover:scale-110 transition-transform" style="background: rgba(255,255,255,0.1);">
-            <img src="img/insta.png" alt="Teléfono" class="w-5 h-5">
-          </a>
-          <a href="https://wa.me/541128580976" target="_blank" rel="noopener" aria-label="WhatsApp del CENS 475" class="w-10 h-10 rounded-lg flex items-center justify-center hover:scale-110 transition-transform" style="background: rgba(255,255,255,0.1);">
-            <img src="img/wsp.png" alt="Teléfono" class="w-5 h-5">
-          </a>
-        </div>
+<footer class="py-12 bg-[#1F333B] text-white">
+  <div class="container grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+    
+    <div class="fade-in">
+      <div class="flex items-center gap-3 mb-4">
+        <img src="img/escudo.png" alt="Escudo CENS 475" class="w-10 h-10 object-contain escudo-logo">
+        <h3 class="text-xl font-bold text-white">CENS N° 475</h3>
       </div>
-      <div class="fade-in" style="transition-delay: 0.1s;">
-        <h3 class="text-xl font-bold mb-4">Contacto</h3>
-        <ul class="space-y-3 text-white/80">
-          <li class="flex items-start gap-3">
-            <i class="fas fa-map-marker-alt mt-1" style="color: var(--accent-teal);"></i>
-            <span>Peribebuy 5790,<br>Isidro Casanova, Buenos Aires</span>
-          </li>
-          <li class="flex items-center gap-3">
-          <img src="img/telefono.png" alt="Teléfono" class="w-5 h-5">
-          <a href="tel:1128580976" class="hover:text-accent-teal transition-colors">1128580976 / 4694-6804</a>
-          </li>
-          <li class="flex items-center gap-3">
-            <img src="img/gmail.png" alt="Teléfono" class="w-5 h-5">
-            <a href="mailto:cens475lamatanza@gmail.com" class="hover:text-accent-teal transition-colors">cens475lamatanza@gmail.com</a>
-          </li>
-          <li class="flex items-center gap-3">
-            <img src="img/reloj.png" alt="horarios" class="w-5 h-5">
-            <span>Lun a Vie: 18:30 - 22:00 hs</span>
-          </li>
-        </ul>
+      <p class="text-white/80 text-sm mb-4">
+        Educación pública, gratuita y de calidad para jóvenes y adultos<br> en Isidro Casanova (barrio San Alberto), La Matanza.
+      </p>
+      <div class="flex gap-3">
+        <a href="https://www.instagram.com/cens475lamatanza/" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
+           aria-label="Seguinos en Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://wa.me/5491128580976?text=Hola!%20Quería%20consultar%20por%20las%20inscripciones%20del%20CENS%20475" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all"
+           aria-label="Contactanos por WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
       </div>
-      <div class="fade-in" style="transition-delay: 0.2s;">
-  <h3 class="text-xl font-bold mb-4">Ubicación</h3>
-  <div class="rounded-lg overflow-hidden" style="height: 200px;">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.784234057884!2d-58.57218652433939!3d-34.63469085959954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb8c1a76f0001%3A0x8e8a609d9361665e!2sAnatole%20France%205755%2C%20B1759%20Isidro%20Casanova%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1717000000000!5m2!1ses!2sar" 
-      width="100%" 
-      height="200" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Mapa de ubicación del CENS 475">
-    </iframe>
-  </div>
-</div>
-</div>
-    <div class="border-t pt-8 text-center text-white/60" style="border-color: rgba(255,255,255,0.1);">
-      <p>&copy; 2026 CENS N° 475 - Todos los derechos reservados | Dirección General de Cultura y Educación | Provincia de Buenos Aires</p>
     </div>
+
+    <div class="fade-in" style="transition-delay: 0.1s;">
+      <h3 class="text-xl font-bold mb-4 text-white">Contacto</h3>
+      <ul class="space-y-3 list-none">
+        <li class="flex items-center gap-3">
+          <i class="fas fa-phone text-[var(--accent-teal)]"></i>
+          <span class="text-white/80">1128580976 / 4694-6804</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <i class="fas fa-envelope text-[var(--accent-teal)]"></i>
+          <span class="text-white/80">cens475lamatanza@gmail.com</span>
+        </li>
+        <li class="flex items-center gap-3">
+          <i class="fas fa-clock text-[var(--accent-teal)]"></i>
+          <span class="text-white/80">Lun a Vie: 18:30 - 22:00 hs</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="fade-in" style="transition-delay: 0.2s;">
+      <h3 class="text-xl font-bold mb-4 text-white">Ubicación</h3>
+      <div class="flex items-start gap-3">
+        <i class="fas fa-map-marker-alt mt-1 text-[var(--accent-teal)]"></i>
+        <span class="text-white/80">Anatole France 5755, Isidro Casanova, Buenos Aires</span>
+      </div>
+      
+      <div class="rounded-lg overflow-hidden mt-6" style="height: 220px;">
+        <iframe src="https://maps.google.com/maps?q=Anatole%20France%205755,%20Isidro%20Casanova,%20Buenos%20Aires&t=&z=17&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border-radius: 12px; border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div> <div class="container mt-8 pt-6 border-t border-white/10 text-center text-sm text-white/60">
+    <p>© 2026 CENS N° 475 - Todos los derechos reservados | Dirección General de Cultura y Educación | Provincia de Buenos Aires</p>
   </div>
 </footer>
 
+// COMIENZO DEL SCRIPT
 <script>
 // 1. Mobile Menu Toggle
 const menuBtn = document.getElementById('menu-btn');
@@ -1353,16 +1411,62 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // 4. Carrusel
-const carousel = document.getElementById('carousel');
-if (carousel) {
-  setInterval(() => {
-    if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 5) {
-      carousel.scrollLeft = 0;
-    } else {
-      carousel.scrollLeft += 300;
-    }
-  }, 3000);
-}
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const carousel = document.getElementById("carousel");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    
+    // Configuración del comportamiento
+    const scrollAmount = 340; // Ajuste aproximado del ancho de tarjeta + gap
+    const autoScrollInterval = 4000; // Tiempo en milisegundos (4 segundos)
+    let autoScrollTimer;
+
+    // Función para iniciar el auto-scroll
+    const startAutoScroll = () => {
+      autoScrollTimer = setInterval(() => {
+        // Si llegó al final, vuelve al principio, sino avanza
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+          carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+      }, autoScrollInterval);
+    };
+
+    // Función para reiniciar el temporizador si el usuario interactúa manualmente
+    const resetTimer = () => {
+      clearInterval(autoScrollTimer);
+      startAutoScroll();
+    };
+
+    // Eventos de botones manuales
+    nextBtn.addEventListener("click", () => {
+      if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+      resetTimer();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (carousel.scrollLeft <= 10) {
+        carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
+      } else {
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      }
+      resetTimer();
+    });
+
+    // Pausar el autoScroll temporalmente mientras el usuario arrastra o usa el touch directamente
+    carousel.addEventListener("touchstart", () => clearInterval(autoScrollTimer));
+    carousel.addEventListener("touchend", startAutoScroll);
+
+    // Iniciar por primera vez
+    startAutoScroll();
+  });
+
 
 // 5. Formulario -> WhatsApp
 const contactForm = document.getElementById('contact-form');
