@@ -1,0 +1,9 @@
+API_key GOOGLE DRIVE
+
+AIzaSyCUSSt9x_8q6Q_lx3BhMcyTYHd5ADekswk
+
+FOLDER_ID NOVEDADES
+1PsHzjboJVu2LDBJMcBM9tfHv6VhAgva1
+
+ID CLIENTE
+399883644721-i1ddinf55i68cskjhvq5311q0hvjk2sl.apps.googleusercontent.com
