@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nuesta Identidad- CENS N° 475 | Isidro Casanova</title>
-<meta name="description" content="Conocé la historia, propuesta institucional y pedagógica del Centro Educativo de Nivel Secundario Nº 475 de Isidro Casanova.">
-<meta name="keywords" content="CENS 475, historia cens 475, secundaria adultos, Isidro Casanova, educación adultos">
+<title>Novedades y Anuncios | CENS N° 475</title>
+<meta name="description" content="Enterate de las últimas novedades, anuncios, fechas de exámenes y eventos del CENS N° 475 de Isidro Casanova.">
+<meta name="keywords" content="CENS 475, novedades, anuncios, fechas examenes, Isidro Casanova, La Matanza">
 <meta name="author" content="CENS N° 475">
 
-<!-- Open Graph -->
+<meta name="google-signin-client_id" content="39983644721-i1ddinf55i68cskjhvq5311q0hvjk2sl.apps.googleusercontent.com">
+
 <meta property="og:type" content="website">
-<meta property="og:title" content="Historia - CENS N° 475">
-<meta property="og:description" content="Conocé la historia, trayectoria y propuesta pedagógica del CENS Nº 475 en Isidro Casanova.">
-<meta property="og:url" content="https://cens475.edu.ar/historia.html">
+<meta property="og:title" content="Novedades y Anuncios - CENS N° 475">
+<meta property="og:description" content="Seguí el día a día de nuestra institution. Comunicados oficiales, talleres y calendario escolar.">
+<meta property="og:url" content="https://cens475.edu.ar/Novedades.html">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="CENS N° 475">
 
 <link rel="icon" href="img/escudo.webp" type="image/png">
-<link rel="shortcut icon" href="img/escudo.webp" type="image/png">
+<link rel="shortcut icon" href="img/escudo.png" type="image/png">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -297,18 +298,7 @@ html.dark header img.escudo-logo {
   box-shadow: var(--shadow-lg);
 }
 
-.btn-secondary {
-  background: var(--white);
-  color: var(--primary-dark);
-  border: 2px solid var(--accent-teal);
-}
-
-.btn-secondary:hover {
-  background: var(--accent-light);
-  color: var(--primary-dark);
-}
-
-/* Hero */
+/* Hero unificado con diseño Identidad */
 .hero {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-teal) 100%);
   color: white;
@@ -316,7 +306,7 @@ html.dark header img.escudo-logo {
   overflow: hidden;
 }
 
-/* Cards */
+/* Cards estilizadas de Identidad aplicadas al feed dinámico */
 .card {
   background: var(--card-bg);
   color: var(--text-main);
@@ -333,19 +323,6 @@ html.dark header img.escudo-logo {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
   border-color: var(--accent-teal);
-}
-
-.card-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent-teal) 100%);
-  color: white;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .badge {
@@ -382,16 +359,6 @@ html.dark #mobile-menu i {
   color: #F1F5F9 !important;
 }
 
-html.dark .btn-secondary {
-  background: rgba(255,255,255,0.1);
-  color: #F1F5F9 !important;
-  border-color: var(--accent-teal);
-  backdrop-filter: blur(10px);
-}
-html.dark .btn-secondary:hover {
-  background: rgba(255,255,255,0.2);
-}
-
 html.dark header img[src*="img/"]:not(.escudo-logo),
 html.dark nav img[src*="img/"]:not(.escudo-logo),
 html.dark .group ul img {
@@ -403,7 +370,7 @@ html.dark .group ul img {
 <body>
 <a href="#main-content" class="skip-to-content">Saltar al contenido principal</a>
 
-<!-- Header -->
+<!-- Header Unificado de Nuestra Identidad -->
 <header>
   <nav class="container" aria-label="Navegación principal">
     <div class="flex items-center justify-between py-4">
@@ -493,7 +460,7 @@ html.dark .group ul img {
     </div>
   </nav>
 
-  <div id="mobile-menu" class="fixed top-[95px] right-0 w-full h-screen md:hidden hidden [&.open]:flex flex-col shadow-2xl transition-all duration-300" style="background: var(--white);">
+  <div id="mobile-menu" class="fixed top-[95px] right-0 w-full h-screen md:hidden hidden [&.open]:flex flex-col shadow-2xl transition-all duration-300" style="background: var(--white); z-index: 40;">
     <ul class="flex flex-col gap-6 p-8 list-none">
       
       <li class="flex flex-col gap-3">
@@ -545,251 +512,58 @@ html.dark .group ul img {
 </header>
 
 <main id="main-content">
-  <!-- Hero Section -->
-  <section class="hero relative min-h-[70vh] flex items-center overflow-hidden">
-    <!-- Fondo con imagen + overlay azul -->
+  
+  <!-- Banner Informativo (Estilizado como Hero de Nuestra Identidad) -->
+  <section class="hero relative min-h-[45vh] flex items-center overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img src="img/fondo-aula.webp" alt="Fondo aula" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-[#2E4A54]/90 backdrop-blur-sm"></div>
     </div>
 
-    <div class="container relative z-10 px-4 md:px-8 mx-auto">
-      <div class="flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-12">
-
-        <!-- Escudo lado izquierdo -->
-        <div class="flex-shrink-0 flex justify-center md:justify-end md:w-2/5">
-          <img
-            src="img/escudo.webp"
-            alt="Escudo CENS Nº 475"
-            class="w-64 md:w-80 lg:w-96 drop-shadow-2xl"
-          >
-        </div>
-
-        <!-- Línea divisoria vertical - solo en desktop -->
-        <div class="hidden md:block w-px bg-white/30"></div>
-
-        <!-- Texto lado derecho -->
-        <div class="flex flex-col justify-center text-center md:text-left text-white md:w-3/5">
-          <span class="inline-block w-fit mx-auto md:mx-0 px-4 py-1.5 mb-4 text-sm font-medium bg-white/15 rounded-full backdrop-blur">
-            Nuestra Identidad, Nuestra Historia 
-          </span>
-
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-            Centro Educativo<br class="hidden md:block">
-            de Nivel<br class="hidden md:block">
-            Secundario<br class="hidden md:block">
-            (CENS) Nº 475
-          </h1>
-
-          <p class="text-base md:text-lg text-white/90 max-w-xl">
-            Una institución pública de gestión estatal orientada a jóvenes y adultos que buscan retomar o finalizar sus estudios secundarios en la provincia de Buenos Aires.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-</main>
-
-  <!-- Origen e Institución -->
-  <section id="historia" class="py-16">
-    <div class="container">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <span class="badge mb-4">Reseña Histórica</span>
-          <h2 class="text-3xl font-bold mb-6">Trayectoria al Servicio de la Comunidad</h2>
-          <p class="mb-4 text-[var(--text-dark)] font-medium leading-relaxed">
-            El Centro Educativo de Nivel Secundario Nº 475 está ubicado en la calle Anatole France 5755, de la localidad de <strong>Isidro Casanova</strong>, Barrio San Alberto, integrándose a la red de instituciones oficiales que garantizan el acceso a la educación obligatoria y consolidándose como un referente comunitario clave en la zona.
-          </p>
-          <p class="text-[var(--text-dark)] font-medium leading-relaxed">
-            Cabe recordar que los CENS fueron creados en <strong>1970</strong>, con carácter experimental y dirigidos a trabajadores mayores de 18 años que no hubieran completado la escolaridad de ese nivel. Con la creación de la Dirección Provincial de Educación de Adultos de la Provincia de Buenos Aires en <strong>1973</strong>, estos centros comenzaron a certificar el nivel secundario y a brindar a los estudiantes la posibilidad de continuar sus estudios superiores.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-landmark"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3">Educación Oficial</h3>
-          <p class="text-[var(--text-main)] font-medium">
-            Como parte del sistema provincial público y estatal, el CENS Nº 475 asegura que cada trayecto realizado se enmarque bajo normativas que respaldan y validan el esfuerzo de sus estudiantes en todo el territorio nacional.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Propuesta Inclusiva -->
-  <section id="propuesta-inclusiva" class="py-16 bg-[var(--bg-section)]" style="background-color: var(--bg-section);">
-    <div class="container">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="badge mb-4">Inclusión</span>
-        <h2 class="text-3xl font-bold mb-4">🏛️ Una Propuesta Inclusiva y Accesible</h2>
-        <p class="text-[var(--text-dark)] font-medium">
-          Al tratarse de un servicio educativo gratuito, el CENS Nº 475 abre sus puertas a quienes, por motivos laborales, familiares o económicos, no pudieron concluir la escuela común en la edad tradicional.
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Población diversa</h3>
-          <p class="text-[var(--text-main)] font-medium">
-            Su alumnado refleja la realidad de la comunidad local, incluyendo a madres y padres de familia, trabajadores que concilian estudio y empleo, y jóvenes que buscan reinsertarse en el sistema educativo.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-graduation-cap"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Segunda oportunidad</h3>
-          <p class="text-[var(--text-main)] font-medium">
-            Para muchos, representa la posibilidad real de obtener un título oficial, mejorando de manera inmediata su empleabilidad y abriendo las puertas a la educación superior o la formación profesional.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Propuesta Pedagógica -->
-  <section id="pedagogia" class="py-16">
-    <div class="container">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="badge mb-4">Pedagogía</span>
-        <h2 class="text-3xl font-bold mb-4">📚 Propuesta Pedagógica y Clima Escolar</h2>
-        <p class="text-[var(--text-dark)] font-medium">
-          El centro opera bajo planes oficiales ajustados a las normativas de la provincia de Buenos Aires, asegurando una certificación con validez nacional.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-clock"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Flexibilidad horaria</h3>
-          <p class="text-[var(--text-main)] font-medium">
-            La organización de las materias y trayectos contempla los tiempos de los estudiantes adultos, ofreciendo cargas horarias concentradas y estructuras que favorecen el cursado intensivo o por etapas.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-book-open"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Enfoque académico</h3>
-          <p class="text-[var(--text-main)] font-medium">
-            La enseñanza se centra en consolidar competencias esenciales en lectura, escritura, matemática y ciencias sociales, vinculándolas con problemáticas actuales, ciudadanía y el mundo del trabajo.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-icon">
-            <i class="fas fa-chalkboard-teacher"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Cercanía docente</h3>
-          <p class="text-[var(--text-main)] font-medium">
-            Uno de los puntos más valorados es el trato horizontal y empático de los profesores. Al tener experiencia en la educación de adultos, adaptan sus estrategias didácticas y acompañan el proceso de quienes regresan al aula tras años de postergación, fortaleciendo su autoestima y motivación.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Desafíos y Aspectos a Considerar -->
-  <section id="desafios" class="py-16 bg-[var(--bg-section)]" style="background-color: var(--bg-section);">
-    <div class="container">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="badge mb-4">Realidad Institucional</span>
-        <h2 class="text-3xl font-bold mb-4">💻 Equipamiento y Entorno Tecnológico</h2>
-        <p class="text-[var(--text-dark)] font-medium">
-          Como parte del sistema de educación pública, la institución gestiona sus recursos con un enfoque práctico y centrado en el estudiante. Si bien la infraestructura general presenta las particularidades propias del sector estatal, el centro cuenta con un espacio tecnológico sólido y preparado para las exigencias actuales::
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="card">
-          <h3 class="text-lg font-bold mb-2 text-[var(--text-dark)] flex items-center gap-2">
-            <i class="fas fa-laptop text-amber-500"></i> Conectividad y Herramientas:
-          </h3>
-          <p class="text-[var(--text-main)] font-medium">
-           El CENS Nº475 dispone de más de 25 computadoras en perfecto funcionamiento y con una conexión a internet estable, garantizando que cada estudiante tenga acceso a las herramientas digitales necesarias para su formación. Los recursos materiales se optimizan al máximo para ofrecer una experiencia educativa sólida y conectada.
-          </p>
-        </div>
-        <div class="card">
-          <h3 class="text-lg font-bold mb-2 text-[var(--text-dark)] flex items-center gap-2">
-            <i class="fas fa-layer-group text-amber-500"></i> Heterogeneidad en el aula
-          </h3>
-          <p class="text-[var(--text-main)] font-medium">
-            Nuestro entorno educativo se caracteriza por la convivencia de realidades muy diversas, lo que fomenta un aprendizaje dinámico y flexible. Entendemos que los compromisos laborales pueden generar variaciones en la asistencia o los horarios; por eso, el equipo docente gestiona el día a día de las clases con un enfoque flexible, diseñado para absorber estas variables sin descuidar el progreso académico.
-          </p>
-        </div>
-        <div class="card">
-          <h3 class="text-lg font-bold mb-2 text-[var(--text-dark)] flex items-center gap-2">
-            <i class="fas fa-folder-open text-amber-500"></i> Trámites y gestión institucional
-          </h3>
-          <p class="text-[var(--text-main)] font-medium">
-            Nuestro compromiso con las normativas oficiales implica seguir tiempos administrativos establecidos para asegurar la validez de cada mejora y proceso. Por este motivo, la gestión de trámites mantiene un formato principalmente presencial, lo que nos permite brindar un acompañamiento personalizado y asegurar que cada gestión se realice con el respaldo institucional necesario.
-          </p>
-        </div>
-        <div class="card">
-          <h3 class="text-lg font-bold mb-2 text-[var(--text-dark)] flex items-center gap-2">
-            <i class="fas fa-bullseye text-amber-500"></i> Enfoque en lo essencial
-          </h3>
-          <p class="text-[var(--text-main)] font-medium">
-            Sabemos que tu tiempo es valioso. Por eso, a diferencia de los formatos escolares tradicionales, nuestro modelo se centra exclusivamente en lo que necesitás: un trayecto claro, enfocado y sin distracciones para terminar el secundario. Es la opción ideal para quienes buscan un avance directo hacia su título, adaptado a sus metas principales.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- El Siguiente Paso -->
-<section id="futuro" class="py-16">
-  <div class="container max-w-4xl">
-    <div class="card bg-gradient-to-br from-[var(--primary-dark)] to-[var(--accent-teal)] text-white p-8 md:p-12 rounded-2xl shadow-xl">
-      <span class="bg-white/20 text-white px-4 py-1 rounded-full text-xs uppercase font-bold tracking-wide inline-block mb-4">
-        Futuro y Graduación
+    <div class="container relative z-10 px-4 md:px-8 mx-auto text-center">
+      <span class="inline-block px-4 py-1.5 mb-4 text-sm font-medium bg-white/15 rounded-full backdrop-blur text-white">
+        Cartelera en Tiempo Real
       </span>
-      <h2 class="text-3xl font-bold mb-6 text-white">🎓 El Siguiente Paso: Articulación y Futuro</h2>
-      
-      <!-- CAMBIO AQUÍ: Se agregó !text-white -->
-      <p class="mb-6 !text-white font-semibold text-lg md:text-xl">
-        El título emitido por el CENS Nº 475 cumple con todos los requisitos legales y posee validez oficial nacional para:
+      <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight text-white">Novedades y Comunicados</h1>
+      <p class="text-base md:text-lg text-white/90 max-w-2xl mx-auto">
+        Consultá los últimos archivos, resoluciones y apuntes subidos directamente por el equipo directivo.
       </p>
-      
-      <ul class="space-y-3 mb-8 list-none pl-0">
-        <li class="flex items-start gap-3 text-white font-medium text-base md:text-lg">
-          <i class="fas fa-check-circle mt-1 text-white text-lg"></i>
-          <span>Acceder a empleos formales y concursos públicos.</span>
-        </li>
-        <li class="flex items-start gap-3 text-white font-medium text-base md:text-lg">
-          <i class="fas fa-check-circle mt-1 text-white text-lg"></i>
-          <span>Continuar estudios en institutos de formación docente o técnica.</span>
-        </li>
-        <li class="flex items-start gap-3 text-white font-medium text-base md:text-lg">
-          <i class="fas fa-check-circle mt-1 text-white text-lg"></i>
-          <span>Ingresar a universidades públicas o privadas.</span>
-        </li>
-      </ul>
+    </div>
+  </section>
 
-      <div class="border-t border-white/30 pt-6 bg-black/10 p-4 rounded-xl">
-        <!-- CAMBIO AQUÍ: Se agregó !text-white -->
-        <p class="text-sm md:text-base italic !text-white font-semibold">
-          <strong>📝 Nota para el ingresante:</strong> El carácter público e inclusivo del centro no significa que el trayecto sea automático o carente de exigencia. Para alcanzar la graduación, se requiere asistencia regular, compromiso con las evaluaciones y constancia para sostener el esfuerzo a mediano plazo.
-        </p>
-      </div>
+  <!-- Contenedor de la API de Google Drive -->
+  <section class="py-16 bg-[var(--bg-section)]">
+    <div class="container">
       
-      <div class="mt-8 text-center">
-        <a href="index.html#inscripciones" class="btn btn-secondary inline-flex items-center gap-2 bg-white text-[var(--primary-dark)] hover:bg-[var(--accent-light)] border-none font-bold">
-          <i class="fas fa-user-plus"></i> Ir a Inscripciones
-        </a>
+      <!-- Contenedor dinámico donde se inyectan las novedades -->
+      <div id="drive-contenedor" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Estado de carga integrado -->
+        <div class="card col-span-full text-center py-12 animate-pulse flex flex-col justify-between">
+          <div>
+            <i class="fas fa-spinner fa-spin text-4xl text-[var(--accent-teal)] mb-4"></i>
+            <h2 class="text-xl font-bold text-[var(--text-dark)]">Conectando con Google Drive...</h2>
+            <p class="mt-2 text-sm text-[var(--text-light)]">Buscando las últimas actualizaciones oficiales.</p>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
 </main>
 
-<!-- Footer -->
+<!-- Redes Flotantes -->
+<div class="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
+  <a href="https://wa.me/541128580976" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <img src="img/wsp.webp" alt="WhatsApp" class="w-8 h-8">
+  </a>
+  <a href="https://www.instagram.com/cens475lamatanza/" target="_blank" class="w-14 h-14 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <img src="img/insta.webp" alt="Instagram" class="w-8 h-8">
+  </a>
+</div>
+
+<!-- Footer Unificado de Nuestra Identidad -->
 <footer class="bg-[#1F333B] text-white py-12 border-t border-[rgba(120,178,180,0.1)]">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -800,38 +574,34 @@ html.dark .group ul img {
         </p>
       </div>
       <div>
-  <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
-<ul class="space-y-3 text-sm text-gray-400 list-none pl-0">
-  <li>
-    <a href="index.html#inicio" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
-      <img src="img/home.webp" alt=""
-           class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
-      <span>Inicio</span>
-    </a>
-  </li>
-  <li>
-    <a href="index.html#sobre-nosotros" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
-      <img src="img/info.webp" alt=""
-           class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
-      <span>Sobre Nosotros</span>
-    </a>
-  </li>
-  <li>
-    <a href="index.html#plan-estudios" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
-      <img src="img/book.webp" alt=""
-           class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
-      <span>Plan de Estudios</span>
-    </a>
-  </li>
-  <li>
-    <a href="index.html#inscripciones" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
-      <img src="img/user-plus.webp" alt=""
-           class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
-      <span>Inscripciones</span>
-    </a>
-  </li>
-</ul>
-</div>
+        <h3 class="text-xl font-bold mb-4">Enlaces Rápidos</h3>
+        <ul class="space-y-3 text-sm text-gray-400 list-none pl-0">
+          <li>
+            <a href="index.html#inicio" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
+              <img src="img/home.webp" alt="" class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
+              <span>Inicio</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#sobre-nosotros" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
+              <img src="img/info.webp" alt="" class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
+              <span>Sobre Nosotros</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#plan-estudios" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
+              <img src="img/book.webp" alt="" class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
+              <span>Plan de Estudios</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html#inscripciones" class="flex items-center gap-2 group hover:text-[var(--accent-teal)] transition-colors">
+              <img src="img/user-plus.webp" alt="" class="w-5 h-5 brightness-0 invert opacity-50 group-hover:opacity-100 group-hover:invert-0 group-hover:brightness-100">
+              <span>Inscripciones</span>
+            </a>
+          </li>
+        </ul>
+      </div>
       <div>
         <h3 class="text-xl font-bold mb-4">Contacto</h3>
         <p class="text-gray-400 text-sm mb-2">
@@ -851,9 +621,80 @@ html.dark .group ul img {
   </div>
 </footer>
 
-<!-- Hamburguesa & Dark Mode Logic Script -->
+<!-- SCRIPTS CENTRALES (Manteniendo lógica de Drive original con componentes visuales de Identidad) -->
 <script>
-// Menu móvil
+const API_KEY = "AIzaSyCUSSt9x_8q6Q_lx3BhMcyTYHd5ADekswk"; 
+const FOLDER_ID = "1PsHzjboJVu2LDBJMcBM9tfHv6VhAgva1"; 
+
+async function cargarNovedadesDrive() {
+  const contenedor = document.getElementById('drive-contenedor');
+  const url = `https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents+and+trashed=false&orderBy=createdTime+desc&pageSize=12&fields=files(id,name,webViewLink,fileExtension,createdTime)&key=${API_KEY}`;
+
+  try {
+    const respuesta = await fetch(url);
+    if (!respuesta.ok) throw new Error("Error en la respuesta de la API");
+    
+    const datos = await respuesta.json();
+    const archivos = datos.files;
+
+    if (!archivos || archivos.length === 0) {
+      contenedor.innerHTML = `
+        <div class="card col-span-full text-center py-12">
+          <p class="text-lg font-semibold text-[var(--text-dark)]">No hay comunicados recientes en la carpeta.</p>
+        </div>`;
+      return;
+    }
+
+    contenedor.innerHTML = "";
+
+    archivos.forEach((archivo, index) => {
+      const fecha = new Date(archivo.createdTime).toLocaleDateString('es-AR', {
+        day: '2-digit', month: 'short', year: 'numeric'
+      });
+      
+      const extension = archivo.fileExtension ? archivo.fileExtension : 'Doc';
+      const delay = (index * 0.1).toFixed(1);
+
+      // TARJETA RECONSTRUIDA ADAPTANDO LAS CLASES CSS "CARD" DE NUESTRA IDENTIDAD
+      const tarjetaHTML = `
+        <div class="card flex flex-col justify-between" style="transition-delay: ${delay}s;">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="badge mb-0 font-bold uppercase px-2.5 py-1 rounded-md text-xs">${extension}</span>
+              <span class="text-sm font-medium text-[var(--text-light)]"><i class="far fa-calendar-alt mr-1"></i> ${fecha}</span>
+            </div>
+            <h2 class="text-xl font-bold text-[var(--text-dark)] mb-3 break-words line-clamp-2" title="${archivo.name.split('.').slice(0, -1).join('.')}">
+              ${archivo.name.split('.').slice(0, -1).join('.')}
+            </h2>
+            <p class="text-sm text-[var(--text-light)] mb-4">
+              Nuevo documento oficial subido a la plataforma digital. Hacé clic abajo para visualizar o descargar el archivo completo de forma segura en Google Drive.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-700/50 flex justify-between items-center mt-auto">
+            <span class="text-sm font-semibold text-[var(--primary)]">Institucional</span>
+            <a href="${archivo.webViewLink}" target="_blank" rel="noopener" class="text-sm font-bold text-[var(--accent-teal)] hover:text-[var(--accent-light)] flex items-center gap-1.5 transition-colors">
+              Abrir Archivo <i class="fas fa-external-link-alt text-xs"></i>
+            </a>
+          </div>
+        </div>`;
+        
+      contenedor.insertAdjacentHTML('beforeend', tarjetaHTML);
+    });
+
+  } catch (error) {
+    console.error("Error al cargar Drive:", error);
+    contenedor.innerHTML = `
+      <div class="card col-span-full text-center py-12 border-red-200 dark:border-red-900/30">
+        <i class="fas fa-exclamation-triangle text-4xl text-red-500 mb-4"></i>
+        <h2 class="text-xl font-bold text-red-600 dark:text-red-400">No se pudo cargar la cartelera virtual</h2>
+        <p class="mt-2 text-sm text-[var(--text-light)]">Verificá la configuración de credenciales o intentá de nuevo más tarde.</p>
+      </div>`;
+  }
+}
+
+window.addEventListener('DOMContentLoaded', cargarNovedadesDrive);
+
+// Menu móvil unificado
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
@@ -864,7 +705,7 @@ if (menuBtn && mobileMenu) {
   });
 }
 
-// Submenu móvil
+// Submenu móvil unificado
 const mobileInicioToggle = document.getElementById('mobile-inicio-toggle');
 const mobileInicioSubmenu = document.getElementById('mobile-inicio-submenu');
 const mobileInicioIcon = document.getElementById('mobile-inicio-icon');
@@ -882,7 +723,7 @@ if (mobileInicioToggle && mobileInicioSubmenu) {
   });
 }
 
-// Dark Mode
+// Dark Mode unificado
 const themeToggle = document.getElementById('theme-toggle');
 const htmlEl = document.documentElement;
 const sunIcon = document.getElementById('theme-icon-sun');
