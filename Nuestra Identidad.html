@@ -8,7 +8,6 @@
 <meta name="keywords" content="CENS 475, historia cens 475, secundaria adultos, Isidro Casanova, educación adultos">
 <meta name="author" content="CENS N° 475">
 
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Historia - CENS N° 475">
 <meta property="og:description" content="Conocé la historia, trayectoria y propuesta pedagógica del CENS Nº 475 en Isidro Casanova.">
@@ -403,7 +402,6 @@ html.dark .group ul img {
 <body>
 <a href="#main-content" class="skip-to-content">Saltar al contenido principal</a>
 
-<!-- Header -->
 <header>
   <nav class="container" aria-label="Navegación principal">
     <div class="flex items-center justify-between py-4">
@@ -526,7 +524,7 @@ html.dark .group ul img {
             <img src="img/liderazgo2.webp" alt="" class="w-5 h-5 object-contain opacity-70"> Equipo Directivo
           </a></li>
           <li><a href="index.html#galeria" class="nav-link text-lg flex items-center gap-3 py-1 px-2 rounded-lg hover:bg-[var(--accent-teal)]/10 transition-colors">
-            <img src="img/galeria-de-imagenes.webp" alt="" class="w-5 h-5 object-contain opacity-70"> Galería de Imágenes 
+            <img src="img/galeria-de-imagenes.webp" alt="" class="w-5 h-5 object-contain opacity-70"> Galerie de Imágenes 
           </a></li>
         </ul>
       </li>
@@ -545,9 +543,7 @@ html.dark .group ul img {
 </header>
 
 <main id="main-content">
-  <!-- Hero Section -->
   <section class="hero relative min-h-[70vh] flex items-center overflow-hidden">
-    <!-- Fondo con imagen + overlay azul -->
     <div class="absolute inset-0 z-0">
       <img src="img/fondo-aula.webp" alt="Fondo aula" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-[#2E4A54]/90 backdrop-blur-sm"></div>
@@ -556,7 +552,6 @@ html.dark .group ul img {
     <div class="container relative z-10 px-4 md:px-8 mx-auto">
       <div class="flex flex-col md:flex-row items-center md:items-stretch gap-8 md:gap-12">
 
-        <!-- Escudo lado izquierdo -->
         <div class="flex-shrink-0 flex justify-center md:justify-end md:w-2/5">
           <img
             src="img/escudo.webp"
@@ -565,10 +560,8 @@ html.dark .group ul img {
           >
         </div>
 
-        <!-- Línea divisoria vertical - solo en desktop -->
         <div class="hidden md:block w-px bg-white/30"></div>
 
-        <!-- Texto lado derecho -->
         <div class="flex flex-col justify-center text-center md:text-left text-white md:w-3/5">
           <span class="inline-block w-fit mx-auto md:mx-0 px-4 py-1.5 mb-4 text-sm font-medium bg-white/15 rounded-full backdrop-blur">
             Nuestra Identidad, Nuestra Historia 
@@ -591,7 +584,6 @@ html.dark .group ul img {
   </section>
 </main>
 
-  <!-- Origen e Institución -->
   <section id="historia" class="py-16">
     <div class="container">
       <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -618,7 +610,6 @@ html.dark .group ul img {
     </div>
   </section>
 
-  <!-- Propuesta Inclusiva -->
   <section id="propuesta-inclusiva" class="py-16 bg-[var(--bg-section)]" style="background-color: var(--bg-section);">
     <div class="container">
       <div class="text-center max-w-3xl mx-auto mb-12">
@@ -652,7 +643,6 @@ html.dark .group ul img {
     </div>
   </section>
 
-  <!-- Propuesta Pedagógica -->
   <section id="pedagogia" class="py-16">
     <div class="container">
       <div class="text-center max-w-3xl mx-auto mb-12">
@@ -695,7 +685,6 @@ html.dark .group ul img {
     </div>
   </section>
 
-  <!-- Desafíos y Aspectos a Considerar -->
   <section id="desafios" class="py-16 bg-[var(--bg-section)]" style="background-color: var(--bg-section);">
     <div class="container">
       <div class="text-center max-w-3xl mx-auto mb-12">
@@ -743,8 +732,36 @@ html.dark .group ul img {
     </div>
   </section>
 
-  <!-- El Siguiente Paso -->
-<section id="futuro" class="py-16">
+  <section id="galeria-drive" class="py-16">
+    <div class="container max-w-4xl">
+      <div class="text-center mb-10">
+        <span class="badge mb-4">Nuestra Vida en el CENS</span>
+        <h2 class="text-3xl font-bold mb-4">📸 Galería de Imágenes Institucionales</h2>
+        <p class="text-[var(--text-dark)] font-medium">Una mirada al día a día de nuestro centro, actividades y momentos compartidos.</p>
+      </div>
+
+      <div class="relative overflow-hidden rounded-2xl shadow-xl border border-[rgba(120,178,180,0.3)] bg-[var(--card-bg)] group">
+        
+        <div id="drive-carousel-inner" class="relative flex transition-transform duration-500 ease-out" style="width: 100%; transform: translateX(0%);">
+          <div id="drive-carousel-loading" class="w-full flex flex-col items-center justify-center p-20 text-center text-[var(--text-muted)] gap-3">
+            <i class="fas fa-spinner fa-spin text-3xl text-[var(--accent-teal)]"></i>
+            <p class="font-medium">Cargando imágenes de nuestro espacio...</p>
+          </div>
+        </div>
+
+        <button id="drive-carousel-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 z-10 hidden" aria-label="Imagen anterior">
+          <i class="fas fa-chevron-left text-lg"></i>
+        </button>
+        <button id="drive-carousel-next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 z-10 hidden" aria-label="Siguiente imagen">
+          <i class="fas fa-chevron-right text-lg"></i>
+        </button>
+
+        <div id="drive-carousel-indicators" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="futuro" class="py-16">
   <div class="container max-w-4xl">
     <div class="card bg-gradient-to-br from-[var(--primary-dark)] to-[var(--accent-teal)] text-white p-8 md:p-12 rounded-2xl shadow-xl">
       <span class="bg-white/20 text-white px-4 py-1 rounded-full text-xs uppercase font-bold tracking-wide inline-block mb-4">
@@ -752,7 +769,6 @@ html.dark .group ul img {
       </span>
       <h2 class="text-3xl font-bold mb-6 text-white">🎓 El Siguiente Paso: Articulación y Futuro</h2>
       
-      <!-- CAMBIO AQUÍ: Se agregó !text-white -->
       <p class="mb-6 !text-white font-semibold text-lg md:text-xl">
         El título emitido por el CENS Nº 475 cumple con todos los requisitos legales y posee validez oficial nacional para:
       </p>
@@ -773,7 +789,6 @@ html.dark .group ul img {
       </ul>
 
       <div class="border-t border-white/30 pt-6 bg-black/10 p-4 rounded-xl">
-        <!-- CAMBIO AQUÍ: Se agregó !text-white -->
         <p class="text-sm md:text-base italic !text-white font-semibold">
           <strong>📝 Nota para el ingresante:</strong> El carácter público e inclusivo del centro no significa que el trayecto sea automático o carente de exigencia. Para alcanzar la graduación, se requiere asistencia regular, compromiso con las evaluaciones y constancia para sostener el esfuerzo a mediano plazo.
         </p>
@@ -789,7 +804,6 @@ html.dark .group ul img {
 </section>
 </main>
 
-<!-- Footer -->
 <footer class="bg-[#1F333B] text-white py-12 border-t border-[rgba(120,178,180,0.1)]">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -851,7 +865,6 @@ html.dark .group ul img {
   </div>
 </footer>
 
-<!-- Hamburguesa & Dark Mode Logic Script -->
 <script>
 // Menu móvil
 const menuBtn = document.getElementById('menu-btn');
@@ -906,6 +919,124 @@ if (themeToggle) {
 
 const saved = localStorage.getItem('theme');
 applyTheme(saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches));
+
+/// ==========================================
+// LÓGICA REPARADA Y AJUSTADA DEL CARRUSEL
+// ==========================================
+const API_KEY = 'AIzaSyCUSSt9x_8q6Q_lx3BhMcyTYHd5ADekswk'; 
+const FOLDER_ID = '1TBOEzjzSqO0_2ghi2wnkpL8hyRGD6stV'; 
+
+const driveUrl = `https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents+and+mimeType+contains+'image/'+and+explicitlyTrashed=false&fields=files(id,name,thumbnailLink)&key=${API_KEY}`;
+
+let currentSlide = 0;
+let totalSlides = 0;
+const innerContainer = document.getElementById('drive-carousel-inner');
+const indicatorsContainer = document.getElementById('drive-carousel-indicators');
+const prevBtn = document.getElementById('drive-carousel-prev');
+const nextBtn = document.getElementById('drive-carousel-next');
+
+function updateCarousel() {
+  if (innerContainer) {
+    // CORRECCIÓN MATEMÁTICA: Mueve el contenedor en base al porcentaje individual de cada slide
+    innerContainer.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
+    
+    const dots = indicatorsContainer.querySelectorAll('button');
+    dots.forEach((dot, idx) => {
+      if (idx === currentSlide) {
+        dot.classList.remove('bg-gray-400/50');
+        dot.classList.add('bg-[var(--accent-teal)]', 'w-6');
+      } else {
+        dot.classList.remove('bg-[var(--accent-teal)]', 'w-6');
+        dot.classList.add('bg-gray-400/50', 'w-2');
+      }
+    });
+  }
+}
+
+async function initDriveCarousel() {
+  try {
+    const response = await fetch(driveUrl);
+    const data = await response.json();
+
+    if (!data.files || data.files.length === 0) {
+      document.getElementById('drive-carousel-loading').innerHTML = `
+        <i class="fas fa-image text-3xl text-gray-400"></i>
+        <p class="font-medium">No se encontraron imágenes públicas en la carpeta.</p>`;
+      return;
+    }
+
+    innerContainer.innerHTML = '';
+    totalSlides = data.files.length;
+    
+    // Forzamos el comportamiento de tira horizontal oculta
+    if (innerContainer.parentElement) {
+      innerContainer.parentElement.style.overflow = 'hidden';
+    }
+    
+    innerContainer.style.display = 'flex';
+    innerContainer.style.flexDirection = 'row';
+    innerContainer.style.flexWrap = 'nowrap';
+    innerContainer.style.width = `${totalSlides * 100}%`;
+    innerContainer.style.transition = 'transform 0.5s ease-in-out';
+
+    data.files.forEach((file, index) => {
+      let imgLink = file.thumbnailLink ? file.thumbnailLink.replace(/=s\d+$/, '=s1000') : `https://docs.google.com/uc?export=view&id=${file.id}`;
+
+      // CREACIÓN DEL SLIDE CON EL ANCHO CORRECTO CORREGIDO
+      const slide = document.createElement('div');
+      // Cada slide debe medir exactamente una fracción del contenedor total (Ej: si son 5, mide 20% del total que es 500%)
+      slide.style.width = `${100 / totalSlides}%`; 
+      slide.style.boxSizing = 'border-box';
+      slide.className = "relative h-[320px] sm:h-[450px] md:h-[520px] flex-shrink-0 flex items-center justify-center bg-black/5 overflow-hidden";
+
+      const img = document.createElement('img');
+      img.src = imgLink;
+      img.alt = file.name;
+      // Usamos object-cover para rellenar armoniosamente el recuadro
+      img.className = "w-full h-full object-cover select-none pointer-events-none";
+      
+      img.onerror = function() {
+        this.src = `https://docs.google.com/uc?export=view&id=${file.id}`;
+      };
+
+      slide.appendChild(img);
+      innerContainer.appendChild(slide);
+      
+      // Crear indicador inferior
+      const dot = document.createElement('button');
+      dot.className = "h-2 rounded-full transition-all duration-300 focus:outline-none";
+      dot.setAttribute('aria-label', `Ir a imagen ${index + 1}`);
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateCarousel();
+      });
+      indicatorsContainer.appendChild(dot);
+    });
+
+    prevBtn.classList.remove('hidden');
+    nextBtn.classList.remove('hidden');
+    
+    updateCarousel();
+
+    nextBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    });
+
+  } catch (error) {
+    console.error("Error cargando imágenes:", error);
+    document.getElementById('drive-carousel-loading').innerHTML = `
+      <i class="fas fa-exclamation-circle text-3xl text-red-500"></i>
+      <p class="font-medium">Ocurrió un problema de conexión con la galería de Google Drive.</p>`;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initDriveCarousel);
 </script>
 </body>
 </html>
