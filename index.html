@@ -892,6 +892,7 @@ input[type="text"] {
 
 <section id="galeria" class="py-16 bg-[var(--bg-light)]">
   <div class="container mx-auto px-4">
+    
     <div class="text-center mb-12 fade-in">
       <span class="badge mb-4">Galería de Imágenes</span>
       <h2 class="text-4xl font-bold mb-4">CENS N° 475 en imágenes</h2>
@@ -914,26 +915,12 @@ input[type="text"] {
 
       <div id="carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6" style="scroll-behavior: smooth;">
         
-        <div class="min-w-[300px] md:min-w-[400px] snap-center">
-          <img src="img/imagen1.webp" alt="Actividad en el aula" class="w-full h-72 object-cover rounded-2xl shadow-lg hover:opacity-90 transition-opacity">
-        </div>
-        <div class="min-w-[300px] md:min-w-[400px] snap-center">
-          <img src="img/imagen2.webp" alt="Estudiantes compartiendo" class="w-full h-72 object-cover rounded-2xl shadow-lg hover:opacity-90 transition-opacity">
-        </div>
-        <div class="min-w-[300px] md:min-w-[400px] snap-center">
-          <img src="img/imagen3.webp" alt="Instalaciones del CENS" class="w-full h-72 object-cover rounded-2xl shadow-lg hover:opacity-90 transition-opacity">
-        </div>
-        <div class="min-w-[300px] md:min-w-[400px] snap-center">
-          <img src="img/imagen4.webp" alt="Clase de administración" class="w-full h-72 object-cover rounded-2xl shadow-lg hover:opacity-90 transition-opacity">
-        </div>
-        <div class="min-w-[300px] md:min-w-[400px] snap-center">
-          <img src="img/imagen5.webp" alt="Eventos especiales" class="w-full h-72 object-cover rounded-2xl shadow-lg hover:opacity-90 transition-opacity">
-        </div>
-        <div class="min-w-[300px] md:min-w-[400px] snap-center">
-          <img src="img/imagen6.webp" alt="Comunidad educativa" class="w-full h-72 object-cover rounded-2xl shadow-lg hover:opacity-90 transition-opacity">
+        <div id="drive-carousel-loading" class="min-w-[300px] md:min-w-[400px] snap-center flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-800 rounded-2xl h-72 shadow-lg">
+          <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-teal-600 mb-4"></div>
+          <p class="text-sm font-medium text-gray-500">Cargando fotos desde Google Drive...</p>
         </div>
 
-        <div class="min-w-[300px] md:min-w-[400px] snap-center flex flex-col justify-center items-center bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 rounded-2xl shadow-lg px-6 text-center text-white">
+        <div id="instagram-card" class="min-w-[300px] md:min-w-[400px] snap-center flex flex-col justify-center items-center bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 rounded-2xl shadow-lg px-6 text-center text-white h-72">
           <i class="fab fa-instagram text-5xl mb-4"></i>
           <h3 class="text-2xl font-bold mb-2">¡Seguinos en las redes!</h3>
           <p class="text-white/95 text-sm mb-6 max-w-[280px]">
@@ -955,6 +942,7 @@ input[type="text"] {
         </a>
       </p>
     </div>
+
   </div>
 </section>
 
@@ -1333,7 +1321,16 @@ input[type="text"] {
 
 
 <script>
-// 1. Mobile Menu Toggle
+// =========================================================================
+// CONFIGURACIÓN DE APIS GLOBALES
+// =========================================================================
+const API_KEY = 'AIzaSyCUSSt9x_8q6Q_lx3BhMcyTYHd5ADekswk'; 
+const FOLDER_ID = '1TBOEzjzSqO0_2ghi2wnkpL8hyRGD6stV'; 
+const DRIVE_API_URL = `https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents+and+mimeType+contains+'image/'+and+explicitlyTrashed=false&fields=files(id,name,thumbnailLink)&key=${API_KEY}`;
+
+// =========================================================================
+// 1. MOBILE MENU & SUBMENU TOGGLES
+// =========================================================================
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
@@ -1352,10 +1349,10 @@ if (menuBtn && mobileMenu) {
   });
 }
 
-// 1b. Mobile Submenu
 const mobileInicioToggle = document.getElementById('mobile-inicio-toggle');
 const mobileInicioSubmenu = document.getElementById('mobile-inicio-submenu');
 const mobileInicioIcon = document.getElementById('mobile-inicio-icon');
+
 if (mobileInicioToggle && mobileInicioSubmenu) {
   mobileInicioToggle.addEventListener('click', (e) => {
     e.preventDefault();
@@ -1372,9 +1369,12 @@ if (mobileInicioToggle && mobileInicioSubmenu) {
   });
 }
 
-// 2. Active Nav Link
+// =========================================================================
+// 2. ACTIVE NAV LINK ON SCROLL
+// =========================================================================
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
+
 function activateNavLink() {
   let current = '';
   sections.forEach(section => {
@@ -1386,71 +1386,102 @@ function activateNavLink() {
 }
 window.addEventListener('scroll', activateNavLink);
 
-// 3. Fade-in
+// =========================================================================
+// 3. FADE-IN ANIMATION OBSERVER
+// =========================================================================
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// 4. Carrusel
+// =========================================================================
+// 4. DINAMIC GOOGLE DRIVE CAROUSEL WITH AUTO-SCROLL
+// =========================================================================
+async function cargarFotosDriveIndex() {
+  const carousel = document.getElementById('carousel');
+  const loadingEl = document.getElementById('drive-carousel-loading');
+  const instagramCard = document.getElementById('instagram-card');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const carousel = document.getElementById("carousel");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-    
-    // Configuración del comportamiento
-    const scrollAmount = 340; // Ajuste aproximado del ancho de tarjeta + gap
-    const autoScrollInterval = 4000; // Tiempo en milisegundos (4 segundos)
-    let autoScrollTimer;
+  if (!carousel || !instagramCard) return;
 
-    // Función para iniciar el auto-scroll
-    const startAutoScroll = () => {
-      autoScrollTimer = setInterval(() => {
-        // Si llegó al final, vuelve al principio, sino avanza
+  try {
+    const response = await fetch(DRIVE_API_URL);
+    const data = await response.json();
+
+    if (!data || !data.files || data.files.length === 0) {
+      throw new Error("No se encontraron imágenes en la carpeta.");
+    }
+
+    // Quitar el spinner de carga
+    if (loadingEl) loadingEl.remove();
+
+    // Insertar cada imagen traída de Google Drive ANTES de la tarjeta de Instagram
+    data.files.forEach((file) => {
+      const slideDiv = document.createElement('div');
+      slideDiv.className = "min-w-[300px] md:min-w-[400px] snap-center";
+
+      const img = document.createElement('img');
+      
+      // Usamos las miniaturas optimizadas para evitar el error 403 de Drive
+      if (file.thumbnailLink) {
+        img.src = file.thumbnailLink.replace(/=s\d+/, '=s800'); 
+      } else {
+        img.src = `https://docs.google.com/uc?export=view&id=${file.id}`;
+      }
+
+      img.alt = "Momento institucional del CENS";
+      img.className = "w-full h-72 object-cover rounded-2xl shadow-lg hover:opacity-90 transition-opacity select-none pointer-events-none";
+      
+      img.onerror = function() {
+        this.src = `https://docs.google.com/uc?export=view&id=${file.id}`;
+      };
+
+      slideDiv.appendChild(img);
+      carousel.insertBefore(slideDiv, instagramCard);
+    });
+
+    // --- LÓGICA DE BOTONES DE NAVEGACIÓN MANUAL ---
+    const scrollAmount = 340; // Píxeles que se desplaza el carrusel en cada clic
+
+    if (prevBtn && nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        // Si el usuario llega al final (tarjeta de Instagram), vuelve al principio de forma suave
         if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
           carousel.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
           carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
-      }, autoScrollInterval);
-    };
+      });
 
-    // Función para reiniciar el temporizador si el usuario interactúa manualmente
-    const resetTimer = () => {
-      clearInterval(autoScrollTimer);
-      startAutoScroll();
-    };
+      prevBtn.addEventListener("click", () => {
+        // Si está en el principio de todo y va hacia atrás, salta al final
+        if (carousel.scrollLeft <= 10) {
+          carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
+        } else {
+          carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+      });
+    }
 
-    // Eventos de botones manuales
-    nextBtn.addEventListener("click", () => {
-      if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
-        carousel.scrollTo({ left: 0, behavior: 'smooth' });
-      } else {
-        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      }
-      resetTimer();
-    });
+  } catch (error) {
+    console.error("Error al sincronizar con Google Drive:", error);
+    if (loadingEl) {
+      loadingEl.innerHTML = `
+        <i class="fas fa-exclamation-circle text-3xl text-red-500 mb-2"></i>
+        <p class="text-sm font-medium text-center px-4">No se pudo cargar la galería de Drive en este momento.</p>
+      `;
+    }
+  }
+}
 
-    prevBtn.addEventListener("click", () => {
-      if (carousel.scrollLeft <= 10) {
-        carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
-      } else {
-        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      }
-      resetTimer();
-    });
+// Inicializar carrusel al cargar la página
+document.addEventListener('DOMContentLoaded', cargarFotosDriveIndex);
 
-    // Pausar el autoScroll temporalmente mientras el usuario arrastra o usa el touch directamente
-    carousel.addEventListener("touchstart", () => clearInterval(autoScrollTimer));
-    carousel.addEventListener("touchend", startAutoScroll);
-
-    // Iniciar por primera vez
-    startAutoScroll();
-  });
-
-
-// 5. Formulario -> WhatsApp
+// =========================================================================
+// 5. CONTACT FORM TO WHATSAPP
+// =========================================================================
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
@@ -1471,7 +1502,9 @@ if (contactForm) {
   });
 }
 
-// 6. Portal Alumnos
+// =========================================================================
+// 6. PORTAL DE ALUMNOS (ACCESO PRIVADO)
+// =========================================================================
 function togglePassword() {
   const input = document.getElementById('password-input');
   const icon = document.getElementById('eye-icon');
@@ -1480,6 +1513,7 @@ function togglePassword() {
   input.type = isPass ? 'text' : 'password';
   icon.src = isPass ? 'img/ver.webp' : 'img/esconder.webp';
 }
+
 function verificarAcceso() {
   const input = document.getElementById('password-input');
   if (!input) return;
@@ -1493,11 +1527,14 @@ function verificarAcceso() {
   }
 }
 
-// 7. Dark Mode
+// =========================================================================
+// 7. DARK MODE SYSTEM
+// =========================================================================
 const themeToggle = document.getElementById('theme-toggle');
 const htmlEl = document.documentElement;
 const sunIcon = document.getElementById('theme-icon-sun');
 const moonIcon = document.getElementById('theme-icon-moon');
+
 function applyTheme(isDark) {
   htmlEl.classList.toggle('dark', isDark);
   if (sunIcon && moonIcon) {
@@ -1505,6 +1542,7 @@ function applyTheme(isDark) {
     moonIcon.classList.toggle('hidden', !isDark);
   }
 }
+
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     const isDark = !htmlEl.classList.contains('dark');
@@ -1512,10 +1550,22 @@ if (themeToggle) {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 }
+
 const saved = localStorage.getItem('theme');
 applyTheme(saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches));
 </script>
 
-<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
+<script>
+  // Script de control de iframe de artefactos
+  (function(){
+    document.addEventListener("click", function(e){
+      var a = e.target.closest("[data-product-id]");
+      if(!a) return;
+      e.preventDefault();
+      var pid = a.getAttribute("data-product-id");
+      if(pid) parent.postMessage({type:"ecto-artifact-link-click", productId:pid}, "*");
+    })
+  })();
+</script>
 </body>
 </html>
