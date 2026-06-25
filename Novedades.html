@@ -622,9 +622,21 @@ html.dark .group ul img {
 </footer>
 
 <!-- SCRIPTS CENTRALES (Manteniendo lógica de Drive original con componentes visuales de Identidad) -->
+
 <script>
 const API_KEY = "AIzaSyCUSSt9x_8q6Q_lx3BhMcyTYHd5ADekswk"; 
 const FOLDER_ID = "1PsHzjboJVu2LDBJMcBM9tfHv6VhAgva1"; 
+
+// Configuración de colores por extensión
+const coloresExtension = {
+  'pdf': 'bg-red-500 text-white',
+  'doc': 'bg-blue-600 text-white',
+  'docx': 'bg-blue-600 text-white',
+  'pptx': 'bg-orange-500 text-white',
+  'xlsx': 'bg-green-600 text-white',
+  'txt': 'bg-gray-500 text-white',
+  'png': 'bg-yellow-400 text-black'
+};
 
 async function cargarNovedadesDrive() {
   const contenedor = document.getElementById('drive-contenedor');
@@ -652,19 +664,23 @@ async function cargarNovedadesDrive() {
         day: '2-digit', month: 'short', year: 'numeric'
       });
       
-      const extension = archivo.fileExtension ? archivo.fileExtension : 'Doc';
+      // Obtener extensión y color
+      const extRaw = archivo.fileExtension ? archivo.fileExtension.toLowerCase() : 'doc';
+      const extClase = coloresExtension[extRaw] || 'bg-slate-400 text-white';
       const delay = (index * 0.1).toFixed(1);
+      const nombreLimpio = archivo.name.split('.').slice(0, -1).join('.');
 
-      // TARJETA RECONSTRUIDA ADAPTANDO LAS CLASES CSS "CARD" DE NUESTRA IDENTIDAD
       const tarjetaHTML = `
         <div class="card flex flex-col justify-between" style="transition-delay: ${delay}s;">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="badge mb-0 font-bold uppercase px-2.5 py-1 rounded-md text-xs">${extension}</span>
+              <span class="badge mb-0 font-bold uppercase px-2.5 py-1 rounded-md text-xs ${extClase}">
+                ${extRaw}
+              </span>
               <span class="text-sm font-medium text-[var(--text-light)]"><i class="far fa-calendar-alt mr-1"></i> ${fecha}</span>
             </div>
-            <h2 class="text-xl font-bold text-[var(--text-dark)] mb-3 break-words line-clamp-2" title="${archivo.name.split('.').slice(0, -1).join('.')}">
-              ${archivo.name.split('.').slice(0, -1).join('.')}
+            <h2 class="text-xl font-bold text-[var(--text-dark)] mb-3 break-words line-clamp-2" title="${nombreLimpio}">
+              ${nombreLimpio}
             </h2>
             <p class="text-sm text-[var(--text-light)] mb-4">
               Nuevo documento oficial subido a la plataforma digital. Hacé clic abajo para visualizar o descargar el archivo completo de forma segura en Google Drive.
@@ -692,12 +708,11 @@ async function cargarNovedadesDrive() {
   }
 }
 
+// Inicialización de componentes
 window.addEventListener('DOMContentLoaded', cargarNovedadesDrive);
 
-// Menu móvil unificado
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
-
 if (menuBtn && mobileMenu) {
   menuBtn.addEventListener('click', () => {
     menuBtn.classList.toggle('active');
@@ -705,25 +720,17 @@ if (menuBtn && mobileMenu) {
   });
 }
 
-// Submenu móvil unificado
 const mobileInicioToggle = document.getElementById('mobile-inicio-toggle');
 const mobileInicioSubmenu = document.getElementById('mobile-inicio-submenu');
 const mobileInicioIcon = document.getElementById('mobile-inicio-icon');
-
 if (mobileInicioToggle && mobileInicioSubmenu) {
   mobileInicioToggle.addEventListener('click', () => {
     mobileInicioSubmenu.classList.toggle('open');
-    if (mobileInicioSubmenu.classList.contains('open')) {
-      mobileInicioSubmenu.style.maxHeight = '500px';
-      if (mobileInicioIcon) mobileInicioIcon.style.transform = 'rotate(180deg)';
-    } else {
-      mobileInicioSubmenu.style.maxHeight = '0px';
-      if (mobileInicioIcon) mobileInicioIcon.style.transform = 'rotate(0deg)';
-    }
+    mobileInicioSubmenu.style.maxHeight = mobileInicioSubmenu.classList.contains('open') ? '500px' : '0px';
+    if (mobileInicioIcon) mobileInicioIcon.style.transform = mobileInicioSubmenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
   });
 }
 
-// Dark Mode unificado
 const themeToggle = document.getElementById('theme-toggle');
 const htmlEl = document.documentElement;
 const sunIcon = document.getElementById('theme-icon-sun');
@@ -744,9 +751,8 @@ if (themeToggle) {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
 }
-
-const saved = localStorage.getItem('theme');
-applyTheme(saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches));
+applyTheme(localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches));
+</script>
 </script>
 </body>
 </html>
