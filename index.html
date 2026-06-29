@@ -186,7 +186,7 @@ input[type="password"]::placeholder {
 }
 
 /* Ajuste del botón */
-#theme-toggle {
+<!-- SWITCH MOVIDO: #theme-toggle { -->
   background: var(--accent-teal) !important;
   transition: all 0.3s ease;
 }
@@ -582,17 +582,45 @@ input[type="text"] {
   <nav class="container" aria-label="Navegación principal">
     <div class="flex items-center justify-between py-4">
       
-      <div class="flex items-center gap-10">
-        <a href="#inicio" class="flex items-center gap-3 text-xl font-bold" aria-label="CENS 475 - Inicio">
+      <div class="flex items-center gap-3">
+        <a href="#inicio" class="flex items-center gap-2 text-base font-bold" aria-label="CENS 475 - Inicio">
           <div class="w-16 h-16 rounded-lg flex items-center justify-center">
             <img src="img/escudo.webp" alt="Escudo CENS 475" class="w-full h-full object-contain escudo-logo">
           </div>
           <div class="flex flex-col">
-            <span class="logo-text-primary text-lg sm:text-xl leading-none">CENS N° 475</span>
+            <span class="logo-text-primary text-base sm:text-xl leading-none">CENS N° 475</span>
             <span class="logo-text-secondary text-[11px] sm:text-xs font-medium text-[var(--text-muted)] leading-tight -mt-0.5">
               Centros Educativos de Nivel Secundario
             </span>
           </div>
+        <!-- Widget Clima Mobile -->
+        <div id="weather-mobile" class="flex lg:hidden items-center gap-2 pl-2 ml-2 border-l border-[var(--text-muted)]/30">
+          <div class="flex flex-col items-start">
+            <div class="flex items-center gap-1">
+              <span id="current-time-m" class="text-[16px] font-bold text-[var(--text-main)] leading-none">12:35</span>
+              <span id="weather-icon-m" class="text-[14px]">⛅</span>
+            </div>
+            <div class="text-[10px] text-[var(--text-muted)] leading-tight">
+              <span id="temp-m">15°C</span> | <span id="weather-desc-m">P. Nublado</span>
+            </div>
+            <div class="text-[9px] text-[var(--text-muted)] leading-tight">Isidro Casanova</div>
+          </div>
+        </div>
+
+        <!-- Widget Clima y Hora -->
+        <div id="weather-time-widget" class="hidden lg:flex items-center gap-3">
+          <div class="flex flex-col items-start border-l-2 border-[var(--text-muted)]/40 pl-4 ml-4">
+            <div class="flex items-center gap-2">
+              <span id="current-time" class="text-[28px] font-bold text-[var(--text-main)] leading-none">12:35</span>
+              <span id="weather-icon" class="text-[26px]">⛅</span>
+            </div>
+            <div class="text-[15px] text-[var(--text-muted)] leading-tight mt-0.5">
+              <span id="temp">15°C</span> | <span id="weather-desc">P. Nublado</span>
+            </div>
+            <div class="text-[13px] text-[var(--text-muted)] leading-tight">Isidro Casanova, BA</div>
+          </div>
+        </div>
+
         </a>
 
         </div>
@@ -646,18 +674,21 @@ input[type="text"] {
             <i class="fas fa-bell text-lg"></i> Novedades
           </a>
         </li>
+        <li class="flex items-center">
+          <button id="theme-toggle" aria-label="Cambiar modo oscuro" 
+                  class="relative w-16 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-teal ml-2"
+                  style="background: var(--accent-teal);">
+            <div id="theme-toggle-thumb" class="absolute top-1 left-1 w-6 h-6 bg-[var(--card-bg)] rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
+              <i id="theme-icon-sun" class="fas fa-sun text-sm" style="color: #FDB813;"></i>
+              <i id="theme-icon-moon" class="fas fa-moon text-sm hidden" style="color: #FFFFFF;"></i>
+            </div>
+          </button>
+        </li>
       </ul>
 
       
       <div class="flex items-center gap-4">
-        <button id="theme-toggle" aria-label="Cambiar modo oscuro" 
-                class="relative w-16 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-teal"
-                style="background: var(--accent-teal);">
-          <div id="theme-toggle-thumb" class="absolute top-1 left-1 w-6 h-6 bg-[var(--card-bg)] rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
-            <i id="theme-icon-sun" class="fas fa-sun text-sm" style="color: #FDB813;"></i>
-            <i id="theme-icon-moon" class="fas fa-moon text-sm hidden" style="color: #FFFFFF;"></i>
-          </div>
-        </button>
+        
         <button id="menu-btn" class="hamburger md:hidden" aria-label="Abrir menú" aria-expanded="false">
         <span></span>
         <span></span>
@@ -670,6 +701,18 @@ input[type="text"] {
   <div id="mobile-menu" class="fixed top-[95px] right-0 w-full h-screen md:hidden hidden [&.open]:flex flex-col shadow-2xl transition-all duration-300" style="background: var(--white);">
     <ul class="flex flex-col gap-6 p-8 list-none">
       
+              <div class="flex items-center justify-center pb-4 mb-4 border-b border-[var(--text-muted)]/20">
+          <span class="text-sm text-[var(--text-muted)] mr-3">TEMA OSCURO</span>
+          <button id="theme-toggle-mobile" aria-label="Cambiar modo oscuro" 
+                  class="relative w-16 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-teal"
+                  style="background: var(--accent-teal);">
+            <div id="theme-toggle-thumb-mobile" class="absolute top-1 left-1 w-6 h-6 bg-[var(--card-bg)] rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center">
+              <i id="theme-icon-sun-mobile" class="fas fa-sun text-sm" style="color: #FDB813;"></i>
+              <i id="theme-icon-moon-mobile" class="fas fa-moon text-sm hidden" style="color: #FFFFFF;"></i>
+            </div>
+          </button>
+        </div>
+
       <li class="flex flex-col gap-3">
         <a href="#zona-alumnos" class="flex items-center gap-2 bg-[#557186] hover:bg-[#4a6375] text-white p-3 rounded-xl font-bold justify-center transition-all w-full">
           <img src="img/alumno.webp" alt="" class="w-6 h-6 object-contain invert"> Portal Alumnos
@@ -816,7 +859,7 @@ input[type="text"] {
             </div>
             <div class="flex items-center gap-2">
               <i class="fas fa-check-circle" style="color: var(--accent-teal);"></i>
-              <span>Turno vespertino</span>
+              <span>Turno noche</span>
             </div>
           </div>
         </div>
@@ -1156,11 +1199,11 @@ input[type="text"] {
           <div class="space-y-4" style="color: var(--text-light);">
             <div>
               <p class="font-semibold" style="color: var(--text-dark);">Turno Vespertino</p>
-              <p>Lunes a Viernes: 18:30 a 22:00 hs</p>
+              <p>Lunes a Viernes: 18:20 a 22:05 hs</p>
             </div>
             <div>
               <p class="font-semibold" style="color: var(--text-dark);">Secretaría</p>
-              <p>Lunes a Viernes: 18:30 a 21:30 hs</p>
+              <p>Lunes a Viernes: 18:20 a 22:05 hs</p>
             </div>
             <div>
               <p class="font-semibold" style="color: var(--text-dark);">Período de Inscripción</p>
@@ -1530,42 +1573,94 @@ function verificarAcceso() {
 // =========================================================================
 // 7. DARK MODE SYSTEM
 // =========================================================================
-const themeToggle = document.getElementById('theme-toggle');
-const htmlEl = document.documentElement;
-const sunIcon = document.getElementById('theme-icon-sun');
-const moonIcon = document.getElementById('theme-icon-moon');
-
-function applyTheme(isDark) {
-  htmlEl.classList.toggle('dark', isDark);
-  if (sunIcon && moonIcon) {
-    sunIcon.classList.toggle('hidden', isDark);
-    moonIcon.classList.toggle('hidden', !isDark);
-  }
-}
-
-if (themeToggle) {
-  themeToggle.addEventListener('click', () => {
-    const isDark = !htmlEl.classList.contains('dark');
-    applyTheme(isDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+// Widget Clima y Hora - Desktop y Mobile
+function updateTime() {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const timeStr = `${hours}:${minutes}`;
+  
+  ['current-time', 'current-time-m'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.textContent = timeStr;
   });
 }
+updateTime();
+setInterval(updateTime, 60000);
 
-const saved = localStorage.getItem('theme');
-applyTheme(saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches));
-</script>
+async function getWeather() {
+  try {
+    const r = await fetch('https://wttr.in/Isidro+Casanova?format=j1');
+    const d = await r.json();
+    const c = d.current_condition[0];
+    if(c) {
+      const t = c.temp_C + '°C';
+      const desc = c.lang_es ? c.lang_es[0].value : c.weatherDesc[0].value;
+      const code = parseInt(c.weatherCode);
+      let icon = '⛅';
+      if (code === 113) icon = '☀️';
+      else if ([116,119,122].includes(code)) icon = '☁️';
+      else if (code >= 176 && code <= 377) icon = '🌧️';
+      else if (code >= 386) icon = '⛈️';
+      
+      ['temp', 'temp-m'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = t; });
+      ['weather-desc', 'weather-desc-m'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = desc; });
+      ['weather-icon', 'weather-icon-m'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = icon; });
+    }
+  } catch(e) { console.log('Clima error:', e); }
+}
+getWeather();
+setInterval(getWeather, 1800000);
 
-<script>
-  // Script de control de iframe de artefactos
-  (function(){
-    document.addEventListener("click", function(e){
-      var a = e.target.closest("[data-product-id]");
-      if(!a) return;
-      e.preventDefault();
-      var pid = a.getAttribute("data-product-id");
-      if(pid) parent.postMessage({type:"ecto-artifact-link-click", productId:pid}, "*");
-    })
-  })();
+// TOGGLE DARK MODE - Funcional
+(function() {
+  const html = document.documentElement;
+  
+  function updateThemeUI(isDark) {
+    // Mover todos los thumbs
+    document.querySelectorAll('[id*="theme-toggle-thumb"]').forEach(thumb => {
+      thumb.style.transform = isDark ? 'translateX(32px)' : 'translateX(0px)';
+    });
+    
+    // Cambiar iconos sol/luna
+    document.querySelectorAll('[id*="theme-icon-sun"]').forEach(icon => {
+      icon.classList.toggle('hidden', isDark);
+    });
+    document.querySelectorAll('[id*="theme-icon-moon"]').forEach(icon => {
+      icon.classList.toggle('hidden', !isDark);
+    });
+    
+    // Cambiar fondo del botón
+    document.querySelectorAll('[id*="theme-toggle"]').forEach(btn => {
+      btn.style.background = isDark ? 'var(--primary-dark)' : 'var(--accent-teal)';
+    });
+  }
+  
+  function toggleTheme() {
+    const isDark = html.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateThemeUI(isDark);
+  }
+  
+  // Cargar tema guardado al iniciar
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+  
+  if (isDark) {
+    html.classList.add('dark');
+  }
+  updateThemeUI(isDark);
+  
+  // Agregar listeners a todos los botones de tema
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('[id*="theme-toggle"]')) {
+      toggleTheme();
+    }
+  });
+})();
 </script>
 </body>
+
+
 </html>
