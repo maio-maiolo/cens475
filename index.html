@@ -574,6 +574,49 @@ input[type="text"] {
   -webkit-text-fill-color: #000 !important;
 }
 </style>
+
+<style>
+/* Fix para que no se desacomode el texto del clima en mobile */
+@media (max-width: 768px) {
+    #temp-m, #weather-desc-m {
+        white-space: nowrap;
+        display: inline-block;
+    }
+    
+    /* El contenedor padre del clima */
+    div:has(#temp-m) {
+        min-width: 100px;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+    
+    /* Que el "Nublado" no salte de línea */
+    #weather-desc-m {
+        margin-left: 3px;
+    }
+    
+    /* Isidro Casanova más chico y abajo */
+    .text-\[9px\] {
+        display: block;
+        margin-top: 2px;
+        line-height: 1;
+    }
+}
+
+/* Fix para desktop también */
+@media (min-width: 769px) {
+    #temp, #weather-desc {
+        white-space: nowrap;
+        display: inline-block;
+    }
+    
+    div:has(#temp) {
+        min-width: 120px;
+        white-space: nowrap;
+    }
+}
+</style>
+
 </head>
  <body>
 <a href="#main-content" class="skip-to-content">Saltar al contenido principal</a>
@@ -582,6 +625,7 @@ input[type="text"] {
   <nav class="container" aria-label="Navegación principal">
     <div class="flex items-center justify-between py-4">
       
+      <!-- IZQUIERDA: Logo + Clima -->
       <div class="flex items-center gap-3">
         <a href="#inicio" class="flex items-center gap-2 text-base font-bold" aria-label="CENS 475 - Inicio">
           <div class="w-16 h-16 rounded-lg flex items-center justify-center">
@@ -590,11 +634,12 @@ input[type="text"] {
           <div class="flex flex-col">
             <span class="logo-text-primary text-base sm:text-xl leading-none">CENS N° 475</span>
             <span class="logo-text-secondary text-[11px] sm:text-xs font-medium text-[var(--text-muted)] leading-tight -mt-0.5">
-              Centros Educativos de Nivel Secundario
-            </span>
+              Centro Educativo Nivel Secundario     </span>
           </div>
+        </a>
+
         <!-- Widget Clima Mobile -->
-        <div id="weather-mobile" class="flex lg:hidden items-center gap-2 pl-2 ml-2 border-l border-[var(--text-muted)]/30">
+        <div id="weather-mobile" class="flex lg:hidden items-center gap-2 pl-2 ml-2 mr-6 border-l border-[var(--text-muted)]/30">
           <div class="flex flex-col items-start">
             <div class="flex items-center gap-1">
               <span id="current-time-m" class="text-[16px] font-bold text-[var(--text-main)] leading-none">12:35</span>
@@ -607,8 +652,8 @@ input[type="text"] {
           </div>
         </div>
 
-        <!-- Widget Clima y Hora -->
-        <div id="weather-time-widget" class="hidden lg:flex items-center gap-3">
+        <!-- Widget Clima Desktop -->
+        <div id="weather-time-widget" class="hidden lg:flex items-center gap-3 mr-8">
           <div class="flex flex-col items-start border-l-2 border-[var(--text-muted)]/40 pl-4 ml-4">
             <div class="flex items-center gap-2">
               <span id="current-time" class="text-[28px] font-bold text-[var(--text-main)] leading-none">12:35</span>
@@ -620,50 +665,35 @@ input[type="text"] {
             <div class="text-[13px] text-[var(--text-muted)] leading-tight">Isidro Casanova, BA</div>
           </div>
         </div>
+      </div>
 
-        </a>
-
-        </div>
-
-      
+      <!-- DERECHA: Menú Desktop -->
       <ul class="hidden md:flex items-center gap-4 list-none">
         <li class="relative group">
           <button class="nav-link flex items-center gap-1" aria-haspopup="true" aria-expanded="false">
             Menu <i class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
           </button>
-          
           <ul class="absolute left-0 top-full mt-3 w-60 bg-[var(--white)] rounded-xl shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-[rgba(120,178,180,0.2)] translate-y-2 group-hover:translate-y-0">
-            <li>
-              <a href="#inicio" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
-                <img src="img/home.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Inicio</span>
-              </a>
-            </li>
-            <li>
-              <a href="#sobre-nosotros" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
-                <img src="img/info.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Sobre Nosotros</span>
-              </a>
-            </li>
-            <li>
-              <a href="Nuestra Identidad.html" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
-                <img src="img/historia.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Nuestra Identidad</span>
-              </a>
-            </li>
-            <li>
-              <a href="#equipo-directivo" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
-                <img src="img/liderazgo2.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Equipo Directivo</span>
-              </a>
-            </li>
-            <li>
-              <a href="#galeria" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
-                <img src="img/galeria-de-imagenes.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Galería de Imágenes</span>
-              </a>
-            </li>
+            <li><a href="#inicio" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+              <img src="img/home.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Inicio</span>
+            </a></li>
+            <li><a href="#sobre-nosotros" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+              <img src="img/info.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Sobre Nosotros</span>
+            </a></li>
+            <li><a href="Nuestra Identidad.html" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+              <img src="img/historia.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Nuestra Identidad</span>
+            </a></li>
+            <li><a href="#equipo-directivo" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+              <img src="img/liderazgo2.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Equipo Directivo</span>
+            </a></li>
+            <li><a href="#galeria" class="flex items-center gap-3 px-4 py-2.5 transition-colors duration-200 hover:bg-[#78B2B4]/20 hover:text-[var(--primary-dark)]">
+              <img src="img/galeria-de-imagenes.webp" alt="" class="w-4 h-4 object-contain opacity-70"> <span>Galería de Imágenes</span>
+            </a></li>
           </ul>
         </li> 
         <li><a href="#plan-estudios" class="nav-link whitespace-nowrap">Plan de Estudios</a></li>
         <li><a href="#inscripciones" class="nav-link whitespace-nowrap">Inscripciones</a></li>
         <li><a href="#contacto" class="nav-link whitespace-nowrap">Contacto</a></li>
-
         <li>
           <a href="#zona-alumnos" class="flex items-center gap-2 bg-[#557186] hover:bg-[#4a6375] text-white p-3 rounded-xl font-bold justify-center transition-all whitespace-nowrap">
             <img src="img/alumno.webp" alt="" class="w-6 h-6 object-contain invert"> Portal Alumnos
@@ -686,17 +716,19 @@ input[type="text"] {
         </li>
       </ul>
 
-      
-      <div class="flex items-center gap-4">
-        
-        <button id="menu-btn" class="hamburger md:hidden" aria-label="Abrir menú" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <!-- DERECHA: Botón hamburguesa mobile - SOLO UNO -->
+      <div class="flex items-center gap-4 md:hidden">
+        <button id="menu-btn" class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
+      
     </div>
   </nav>
+
+  <!-- Menú mobile desplegable -->
 
   <div id="mobile-menu" class="fixed top-[95px] right-0 w-full h-screen md:hidden hidden [&.open]:flex flex-col shadow-2xl transition-all duration-300" style="background: var(--white);">
     <ul class="flex flex-col gap-6 p-8 list-none">
@@ -1198,7 +1230,7 @@ input[type="text"] {
           <h3 class="text-2xl mb-4">Horarios de Atención</h3>
           <div class="space-y-4" style="color: var(--text-light);">
             <div>
-              <p class="font-semibold" style="color: var(--text-dark);">Turno Vespertino</p>
+              <p class="font-semibold" style="color: var(--text-dark);">Turno Noche</p>
               <p>Lunes a Viernes: 18:20 a 22:05 hs</p>
             </div>
             <div>
