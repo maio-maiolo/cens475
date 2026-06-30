@@ -18,6 +18,7 @@
 <link rel="icon" href="img/escudo.webp" type="image/webp">
 <link rel="shortcut icon" href="img/escudo.webp" type="image/webp">
 <link rel="apple-touch-icon" href="img/escudo.jpg">
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -183,12 +184,6 @@ input[type="password"] {
 }
 input[type="password"]::placeholder {
   color: #64748B;
-}
-
-/* Ajuste del botón */
-<!-- SWITCH MOVIDO: #theme-toggle { -->
-  background: var(--accent-teal) !important;
-  transition: all 0.3s ease;
 }
 
 html.dark #theme-toggle-thumb {
@@ -657,10 +652,10 @@ input[type="text"] {
           <div class="flex flex-col items-start border-l-2 border-[var(--text-muted)]/40 pl-4 ml-4">
             <div class="flex items-center gap-2">
               <span id="current-time" class="text-[20px] font-bold text-[var(--text-main)] leading-none">12:35</span>
-              <span id="weather-icon" class="text-[18px]">⛅</span>
+              <span id="weather-icon" class="text-[18px]"></span>
             </div>
             <div class="text-[15px] text-[var(--text-muted)] leading-tight mt-0.5">
-              <span id="temp">15°C</span> | <span id="weather-desc">P. Nublado</span>
+              <span id="temp">15°C</span> | <span id="weather-desc"></span>
             </div>
             <div class="text-[13px] text-[var(--text-muted)] leading-tight">Isidro Casanova, BA</div>
           </div>
@@ -733,7 +728,18 @@ input[type="text"] {
   <div id="mobile-menu" class="fixed top-[95px] right-0 w-full h-screen md:hidden hidden [&.open]:flex flex-col shadow-2xl transition-all duration-300" style="background: var(--white);">
     <ul class="flex flex-col gap-6 p-8 list-none">
       
-              <div class="flex items-center justify-center pb-4 mb-4 border-b border-[var(--text-muted)]/20">
+<!-- Menú botones a otras paginas-->
+      <li class="flex flex-col gap-3">
+        <a href="#zona-alumnos" class="flex items-center gap-2 bg-[#557186] hover:bg-[#4a6375] text-white p-3 rounded-xl font-bold justify-center transition-all w-full">
+          <img src="img/alumno.webp" alt="" class="w-6 h-6 object-contain invert"> Portal Alumnos
+        </a>
+        <a href="Novedades.html" class="flex items-center gap-2 bg-[#78B2B4] hover:bg-[#5a9a9c] text-white p-3 rounded-xl font-bold justify-center transition-all w-full">
+          <i class="fas fa-bell text-lg"></i> Novedades
+        </a>
+      </li>
+
+      <!-- Switch modo oscuro -->
+    <div class="flex items-center justify-center pb-4 mb-4 border-b border-[var(--text-muted)]/20">
           <span class="text-sm text-[var(--text-muted)] mr-3">TEMA OSCURO</span>
           <button id="theme-toggle-mobile" aria-label="Cambiar modo oscuro" 
                   class="relative w-16 h-8 rounded-full p-1 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-teal"
@@ -744,17 +750,9 @@ input[type="text"] {
             </div>
           </button>
         </div>
-
-      <li class="flex flex-col gap-3">
-        <a href="#zona-alumnos" class="flex items-center gap-2 bg-[#557186] hover:bg-[#4a6375] text-white p-3 rounded-xl font-bold justify-center transition-all w-full">
-          <img src="img/alumno.webp" alt="" class="w-6 h-6 object-contain invert"> Portal Alumnos
-        </a>
-        <a href="Novedades.html" class="flex items-center gap-2 bg-[#78B2B4] hover:bg-[#5a9a9c] text-white p-3 rounded-xl font-bold justify-center transition-all w-full">
-          <i class="fas fa-bell text-lg"></i> Novedades
-        </a>
-      </li>
-
       <li>
+
+<!-- Menú botones a otras secciones -->
         <button id="mobile-inicio-toggle" class="nav-link text-xl flex items-center justify-between w-full" aria-expanded="false">
           <span class="flex items-center gap-3">
             <img src="img/lista.webp" alt="" class="w-6 h-6 object-contain"> Menu
@@ -780,6 +778,7 @@ input[type="text"] {
         </ul>
       </li>
 
+      <!-- tarjetas -->
       <li><a href="#plan-estudios" class="nav-link text-xl flex items-center gap-3">
           <img src="img/book.webp" alt="" class="w-6 h-6 object-contain"> Plan de Estudios
       </a></li>
@@ -794,6 +793,7 @@ input[type="text"] {
   </div>
 </header>
 
+<!-- encabezado, inicio de la web -->
 <main id="main-content">
   <section id="inicio" class="hero py-20 md:py-32">
     <div class="container relative z-10">
@@ -811,6 +811,8 @@ input[type="text"] {
             <li>Ciencias Sociales</li>
             <li>Economía y Administración</li>
           </ul>
+
+          <!-- botones de acceso directo-->
           <div class="flex flex-col sm:flex-row gap-4 mt-8">
   <a href="#inscripciones" class="bg-white text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center justify-center">
     <i class="fas fa-user-plus mr-2"></i> Iniciar Inscripción
@@ -823,19 +825,16 @@ input[type="text"] {
   </a>
 </div>
 </div>
-        <div class="fade-in" style="transition-delay: 0.2s;">
-          <img 
-            src="img/cens475.webp" 
-            alt="Estudiantes adultos en clase del CENS 475" 
-            width="800" 
-            height="600" 
-            loading="lazy"
-            class="rounded-2xl shadow-2xl w-full">
+
+<!-- imagen de inicio-->
+  <div class="fade-in" style="transition-delay: 0.2s;">
+    <img src="img/cens475.webp" alt="Estudiantes adultos en clase del CENS 475" width="800" height="600" loading="lazy" class="rounded-2xl shadow-2xl w-full">
         </div>
       </div>
     </div>
   </section>
-  
+
+  <!-- tarjetas 2-->
   <section class="py-12 -mt-16 relative z-20">
     <div class="container">
       <div class="grid md:grid-cols-3 gap-6">
@@ -865,9 +864,10 @@ input[type="text"] {
     </div>
   </section>
 
+  <!-- SECCION NOSOTROS -->
   <section id="sobre-nosotros">
     <div class="container">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="grid md:grid-cols-2 gap-12 items-center h-96 ">
         <div class="fade-in">
           <span class="badge mb-4">Sobre Nosotros</span>
           <h2 class="text-3xl md:text-4xl mb-6">Educación pública de calidad en Isidro Casanova</h2>
@@ -895,19 +895,14 @@ input[type="text"] {
             </div>
           </div>
         </div>
+        <!-- imagen de la seccion Nosotros-->
         <div class="fade-in" style="transition-delay: 0.2s;">
-          <img 
-            src="img/aula2.webp" 
-            alt="Docentes y estudiantes del CENS 475 trabajando en conjunto" 
-            width="800" 
-            height="600" 
-            loading="lazy"
-            class="rounded-2xl shadow-xl w-full">
-        </div>
+        <img src="img/aula2.webp" alt="Docentes y estudiantes" class="rounded-2xl shadow-xl w-full h-full object-cover" loading="lazy"></div>
       </div>
     </div>
   </section>
 
+  <!-- SECCION EQUIPO DIRECTIVO -->
 <section id="equipo-directivo" style="background: var(--bg-light);">
   <div class="container">
     <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
@@ -965,36 +960,33 @@ input[type="text"] {
   </div>
 </section>
 
+<!-- SECCION GALERIA IMAGENS DESDE DRIVE -->
 <section id="galeria" class="py-16 bg-[var(--bg-light)]">
   <div class="container mx-auto px-4">
-    
     <div class="text-center mb-12 fade-in">
       <span class="badge mb-4">Galería de Imágenes</span>
       <h2 class="text-4xl font-bold mb-4">CENS N° 475 en imágenes</h2>
-      
       <div class="flex flex-wrap justify-center gap-3 mt-6">
         <span class="px-4 py-1 bg-[var(--card-bg)] border border-teal-200 text-teal-800 rounded-full font-medium shadow-sm">Momentos en nuestro CENS</span>
         <span class="px-4 py-1 bg-[var(--card-bg)] border border-teal-200 text-teal-800 rounded-full font-medium shadow-sm">Nuestra comunidad</span>
       </div>
     </div>
-
     <div class="relative max-w-5xl mx-auto group/arrows">
-      
+    
+      <!-- Botones hacia atras y adelante -->
       <button id="prevBtn" aria-label="Imagen anterior" class="absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all md:opacity-0 md:group-hover/arrows:opacity-100 shadow-md">
         <i class="fas fa-chevron-left"></i>
       </button>
-
       <button id="nextBtn" aria-label="Siguiente imagen" class="absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all md:opacity-0 md:group-hover/arrows:opacity-100 shadow-md">
         <i class="fas fa-chevron-right"></i>
       </button>
 
       <div id="carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6" style="scroll-behavior: smooth;">
-        
         <div id="drive-carousel-loading" class="min-w-[300px] md:min-w-[400px] snap-center flex flex-col justify-center items-center bg-gray-100 dark:bg-gray-800 rounded-2xl h-72 shadow-lg">
           <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-teal-600 mb-4"></div>
           <p class="text-sm font-medium text-gray-500">Cargando fotos desde Google Drive...</p>
         </div>
-
+           <!-- tarjeta final link a instagram -->
         <div id="instagram-card" class="min-w-[300px] md:min-w-[400px] snap-center flex flex-col justify-center items-center bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 rounded-2xl shadow-lg px-6 text-center text-white h-72">
           <i class="fab fa-instagram text-5xl mb-4"></i>
           <h3 class="text-2xl font-bold mb-2">¡Seguinos en las redes!</h3>
@@ -1002,13 +994,10 @@ input[type="text"] {
             ¡Seguinos en Instagram y entérate de todas las novedades de nuestra institución al instante! 
           </p>
           <a href="https://www.instagram.com/cens475lamatanza/" target="_blank" rel="noopener" class="bg-white text-purple-700 px-6 py-2.5 rounded-full font-bold shadow-md hover:bg-opacity-90 transition-all text-sm flex items-center gap-2">
-            @cens475lamatanza <i class="fas fa-external-link-alt text-xs"></i>
-          </a>
+            @cens475lamatanza <i class="fas fa-external-link-alt text-xs"></i></a>
         </div>
-
       </div>
     </div>
-
     <div class="text-center mt-10 fade-in">
       <p class="text-lg font-medium text-[var(--text-dark)] flex items-center justify-center gap-2 flex-wrap">
         📸 ¡Mirá más contenido! 
@@ -1017,10 +1006,10 @@ input[type="text"] {
         </a>
       </p>
     </div>
-
   </div>
 </section>
 
+<!-- SECCION PORTAL ALUMNOS -->
 <section id="zona-alumnos" class="py-16 bg-[var(--bg-light)]">
   <div class="container mx-auto px-4">
     <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
@@ -1078,6 +1067,7 @@ input[type="text"] {
         </div>
       </div> </div> </div> </section>
 
+<!-- SECCION PLAN DE ESTUDIOS -->
 <section id="plan-estudios" style="background: var(--white); padding: 4rem 0;">
   <div class="container">
     <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
@@ -1087,9 +1077,7 @@ input[type="text"] {
         Formación integral de 3 años, combinando áreas básicas con orientaciones específicas en Ciencias Naturales, Ciencias Sociales y Economía y Administración.
       </p>
     </div>
-
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
       <div class="card fade-in p-6 shadow-lg rounded-xl border border-gray-100">
         <h3 class="text-2xl mb-6 flex items-center gap-3 font-bold" style="color: var(--accent-teal);">
           <i class="fas fa-book"></i> PRIMER AÑO
@@ -1118,7 +1106,6 @@ input[type="text"] {
           </div>
         </div>
       </div>
-
       <div class="card fade-in p-6 shadow-lg rounded-xl border border-gray-100" style="transition-delay: 0.1s;">
         <h3 class="text-2xl mb-6 flex items-center gap-3 font-bold" style="color: var(--accent-teal);">
           <i class="fas fa-book-open"></i> SEGUNDO AÑO
@@ -1148,7 +1135,6 @@ input[type="text"] {
           </div>
         </div>
       </div>
-
       <div class="card fade-in p-6 shadow-lg rounded-xl border border-gray-100" style="transition-delay: 0.2s;">
         <h3 class="text-2xl mb-6 flex items-center gap-3 font-bold" style="color: var(--accent-teal);">
           <i class="fas fa-graduation-cap"></i> TERCER AÑO
@@ -1178,13 +1164,13 @@ input[type="text"] {
         </div>
       </div>
     </div>
-    
     <p class="text-center mt-8 text-sm text-gray-500 italic">
       * En todos los años y orientaciones se dicta el espacio institucional: Situación Problemática y Proyecto de Acción.
     </p>
   </div>
 </section>
 
+<!-- SECCION PRE-INSCRIPCIONES -->
   <section id="inscripciones"class="py-24">
     <div class="container">
       <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
@@ -1244,26 +1230,21 @@ input[type="text"] {
           </div>
         </div>
       </div>
+      <!-- Link whatsapp -->
       <div class="text-center fade-in flex flex-wrap justify-center gap-4">
   <a href="https://wa.me/5491128580976?text=Hola,%20quiero%20consultar%20sobre%20las%20inscripciones%20del%20CENS%20475" 
-     class="btn btn-whatsapp text-lg" 
-     target="_blank" 
-     rel="noopener" 
-     aria-label="Contactar por WhatsApp para inscripciones">
+     class="btn btn-whatsapp text-lg" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp para inscripciones">
     <i class="fab fa-whatsapp text-xl"></i> Consultar WSP
   </a>
-
+<!-- Link formulario de google form -->
   <a href="https://docs.google.com/forms/d/e/1FAIpQLScY7OfJnHZel6dcokRyzamHvM_UeEKsL0cSrthO_z3Ls626nQ/viewform?usp=sharing&ouid=104437143463491521229" 
-     class="btn text-lg" 
-     style="background-color: #4285f4; color: white;" 
-     target="_blank" 
-     rel="noopener" 
-     aria-label="Formulario de pre-inscripción">
+     class="btn text-lg" style="background-color: #4285f4; color: white;" target="_blank" rel="noopener" aria-label="Formulario de pre-inscripción">
     <i class="fas fa-file-alt"></i> Pre-inscripción
   </a>
 </div>
   </section>
 
+<!-- SECCION CONTACTO -->
   <section id="contacto"class="py-24" style="background: var(--white);">
     <div class="container">
       <div class="text-center max-w-3xl mx-auto mb-12 fade-in">
@@ -1311,9 +1292,9 @@ input[type="text"] {
       </div>
     </div>
   </section>
-
 </main>
 
+<!-- BOTONES FLOTANTES INSTAGRAM Y WHATSAPP-->
 <div class="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
   <a href="https://wa.me/541128580976" target="_blank" class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
     <img src="img/wsp.webp" alt="WhatsApp" class="w-8 h-8">
@@ -1323,9 +1304,9 @@ input[type="text"] {
   </a>
 </div>
 
+<!-- PIE DE PAGINA -->
 <footer class="py-12 bg-[#1F333B] text-white">
   <div class="container grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-    
     <div class="fade-in">
       <div class="flex items-center gap-3 mb-4">
         <img src="img/escudo.webp" alt="Escudo CENS 475" class="w-10 h-10 object-contain escudo-logo">
@@ -1377,7 +1358,7 @@ input[type="text"] {
         <i class="fas fa-map-marker-alt mt-1 text-[var(--accent-teal)]"></i>
         <span class="text-white/80">Anatole France 5755, Isidro Casanova, La Matanza.</span>
       </div>
-      
+      <!-- Mapa de ubicacion -->
       <div class="rounded-lg overflow-hidden mt-6" style="height: 220px;">
         <iframe src="https://maps.google.com/maps?q=Anatole%20France%205755,%20Isidro%20Casanova,%20Buenos%20Aires&t=&z=17&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 
@@ -1396,8 +1377,9 @@ input[type="text"] {
 
 
 <script>
+
 // =========================================================================
-// CONFIGURACIÓN DE APIS GLOBALES
+// CONFIGURACIÓN DE API PARA CARRUSEL DE IMAGENES
 // =========================================================================
 const API_KEY = 'AIzaSyCUSSt9x_8q6Q_lx3BhMcyTYHd5ADekswk'; 
 const FOLDER_ID = '1TBOEzjzSqO0_2ghi2wnkpL8hyRGD6stV'; 
@@ -1602,7 +1584,6 @@ function verificarAcceso() {
   }
 }
 
-
 // Widget Clima y Hora - Desktop y Mobile
 // 1. Configuración inicial
 const apiKey = 'e0e5c2b54bafb5e99674527afba32055';
@@ -1730,6 +1711,4 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 </body>
-
-
 </html>
