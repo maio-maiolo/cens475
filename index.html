@@ -3,22 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CENS N° 475 - Centros Educativos de Nivel Secundario | Isidro Casanova</title>
-<meta name="description" content="CENS N° 475 de Isidro Casanova. Terminá tu secundario con orientación en Administración y Gestión. Educación pública, gratuita y de calidad para jóvenes y adultos. Inscripciones abiertas.">
+<title>CENS N° 475 - Centros Educativos de Nivel Secundario | Islas Malvinas</title>
+<meta name="description" content="CENS N° 475 Islas Malvinas de Isidro Casanova. Terminá tu secundario con orientación en Ciencias Naturales, Ciencias Sociales y Gestión y Administración. Educación pública, gratuita y de calidad para jóvenes y adultos. Inscripciones abiertas todo el año.">
 <meta name="keywords" content="CENS 475, secundario adultos, bachiller administración, Isidro Casanova, terminar secundario, educación adultos, La Matanza">
-<meta name="author" content="CENS N° 475">
-
+<meta name="author" content="CENS N°475 (M.N.M)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CENS N° 475 - Centros Educativos de Nivel Secundario">
 <meta property="og:description" content="Terminá tu secundario en CENS N° 475. Educación pública y gratuita con orientación en Administración y Gestión en Isidro Casanova.">
-<meta property="og:url" content="https://cens475.edu.ar">
+<meta property="og:url" content="cens475lamatanza@gmail.com">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="CENS N° 475">
-
 <link rel="icon" href="img/escudo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="img/escudo.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="img/escudo.ico">
-
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -110,7 +107,13 @@ header {
   box-shadow: var(--shadow);
   transition: all 0.3s ease;
 }
-
+.lista-iconos li::before {
+    content: '✅'; 
+    position: absolute;
+    left: 0;
+    top: 0;
+     
+  }
 /* HEADER - Modo oscuro sistema */
 @media (prefers-color-scheme: dark) {
   header {
@@ -621,15 +624,14 @@ input[type="text"] {
     <div class="flex items-center justify-between py-4">
       
       <!-- IZQUIERDA: Logo + Clima -->
-      <div class="flex items-center gap-6">
+      <div class="flex items-center gap-3">
         <a href="#inicio" class="flex items-center gap-2 text-base font-bold" aria-label="CENS 475 - Inicio">
           <div class="w-16 h-16 rounded-lg flex items-center justify-center">
             <img src="img/escudo.webp" alt="Escudo CENS 475" class="w-full h-full object-contain escudo-logo">
           </div>
           <div class="flex flex-col">
-            <span class="logo-text-primary text-base sm:text-xl leading-none mb-1">CENS N° 475</span>
-            <span class="logo-text-secondary text-[11px] sm:text-xs font-medium text-[var(--text-muted)] leading-tight -mt-0.5">
-              CENTRO EDUCATIVO <br> NIVEL SECUNDARIO </span>
+            <span class="logo-text-primary text-base sm:text-xl leading-none mb-1">CENS N°475</span>
+            <span class="logo-text-secondary text-sm sm:text-lg font-medium text-[var(--text-muted)] leading-tight -mt-0.5 font-bold text-center"> Islas Malvinas</span>
           </div>
         </a>
 
@@ -801,16 +803,22 @@ input[type="text"] {
         <div class="fade-in">
           <span class="badge mb-4 text-[13px]">Inscripciones Abiertas todo el año</span>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
-            Terminá tu secundario en el CENS N° 475
+            Terminá tu secundario en el CENS N° 475 <br> Islas Malvinas
           </h1>
           <p class="text-lg md:text-xl mb-6 text-white/90">
-            Completá tus estudios en el CENS N° 475, ubicado en el Barrio San Alberto, Isidro Casanova. Ofrecemos educación pública, gratuita y de calidad con un plan de estudios de 3 años, diseñado para tu crecimiento personal y profesional a través de tres orientaciones:
+            Completá tus estudios secundarios en el CENS N° 475, ubicado en Isidro Casanova, barrio San Alberto. Ofrecemos educación pública, gratuita y de calidad con un plan de estudios de 3 años, diseñado para tu crecimiento personal y profesional a través de tres orientaciones:
           </p>
-          <ul class="text-lg md:text-xl text-white/90 mb-8 list-disc list-inside space-y-1">
-            <li>Ciencias Naturales</li>
-            <li>Ciencias Sociales</li>
-            <li>Economía y Administración</li>
-          </ul>
+          <ul class="lista-iconos text-lg md:text-xl text-white/90 mb-8 space-y-2 list-none pl-0">
+  <li class="relative pl-8">
+    Ciencias Naturales
+  </li>
+  <li class="relative pl-8">
+    Ciencias Sociales
+  </li>
+  <li class="relative pl-8">
+    Economía y Administración
+  </li>
+</ul>
 
           <!-- botones de acceso directo-->
           <div class="flex flex-col sm:flex-row gap-4 mt-8">
@@ -870,17 +878,17 @@ input[type="text"] {
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="fade-in">
           <span class="badge mb-4">Sobre Nosotros</span>
-          <h2 class="text-3xl md:text-4xl mb-6">Educación pública de calidad en Isidro Casanova</h2>
-          <p class="mb-4" style="color: var(--text-light);">
+          <h2 class="text-3xl md:text-4xl mb-2">Educación pública de calidad en Isidro Casanova</h2>
+          <p class="mb-2" style="color: var(--text-light);">
             El CENS N° 475 es una institución educativa pública dependiente de la Dirección General de Cultura y Educación de la Provincia de Buenos Aires, dedicada a brindar educación secundaria a jóvenes y adultos.
           </p>
-          <p class="mb-4" style="color: var(--text-light);">
-            Nuestra misión es garantizar el derecho a la educación mediante una propuesta pedagógica inclusiva, que respeta los tiempos y trayectorias de cada estudiante. Contamos con un equipo docente comprometido y especializado en educación de adultos.
+          <p class="mb-2" style="color: var(--text-light);">
+            Nuestra misión es garantizar el derecho a la educación mediante una propuesta pedagógica inclusiva, que respeta los tiempos de cada estudiante. Contamos con un equipo docente comprometido en educación de adultos.
           </p>
-          <p class="mb-6" style="color: var(--text-light);">
+          <p class="mb-2" style="color: var(--text-light);">
             Ubicados en el Isidro Casanova, barrio San Alberto, formamos profesionales con orientación en Ciencias Naturales, Ciencias Sociales y Gestión y Administración, preparados para insertarse en el mundo laboral actual o continuar estudios superiores. Creemos en la educación como herramienta de transformación social y crecimiento personal.
           </p>
-          <div class="flex flex-wrap gap-4">
+          <div class="flex flex-wrap gap-6">
             <div class="flex items-center gap-2">
               <i class="fas fa-check-circle" style="color: var(--accent-teal);"></i>
               <span>Educación gratuita</span>
